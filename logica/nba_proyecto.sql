@@ -1,3 +1,7 @@
+DROP DATABASE baloncesto IF EXISTS;
+CREATE DATABASE baloncesto;
+USE baloncesto;
+
 CREATE TABLE equipos (
   nombre varchar(20) NOT NULL,
   ciudad varchar(20) DEFAULT NULL,
