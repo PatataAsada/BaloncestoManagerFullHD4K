@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 DROP DATABASE baloncesto IF EXISTS;
 CREATE DATABASE baloncesto;
 USE baloncesto;
