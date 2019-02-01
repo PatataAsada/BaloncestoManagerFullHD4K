@@ -35,8 +35,8 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
     if ($data || $data > 0) {
         //Si devuelve true o es mayor de 0 es que la consulta está bien y el select devuelve datos
         echo "<hr/>";
-        echo "<table border style='margin: 0 auto' width='45%'>";
-        echo "<tr id='cabeza'>";
+        echo "<table border style='margin: 0 auto' width='45%' class='tabla'>";
+        echo "<tr class='cabeza'>";
         foreach ($header as $value) {
             //cabecera de la tabla
             echo "<th>" . $value . "</th>";
@@ -44,20 +44,20 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
         echo "</tr>";
         foreach ($data as $value) {
             //cuerpo de la tabla
-            echo "<tr id='cuerpo'>";
+            echo "<tr class='cuerpo'>";
             echo "<td><b>" . $value . "</td></b>";
             echo "</tr>";
         }
         echo "</table>";
-        echo "<div style=\"text-align: center;\"><h3><b>" . "Número de $entity: " . $database->count($sql_data[0], $sql_data[1], $sql_data[2]) . "</h3></b>";
+        echo "<div style=\"text-align: center;\" class='error'><h3><b>" . "Número de $entity: " . $database->count($sql_data[0], $sql_data[1], $sql_data[2]) . "</h3></b>";
         goBack($isBack);
     } else if ($data == 0) {
         //Si devuelve 0 la consulta no tiene registros que devolver
-        echo "<div style=\"text-align: center;\"><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
+        echo "<div style=\"text-align: center;\" class='error'><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
         goBack($isBack);
     } else {
         //Posible error
-        echo "<div style=\"text-align: center;\"><b>" . "PDO::errorCode(): " . $database->pdo->errorCode() . " - " . $database->pdo->errorInfo() . "</b>";
+        echo "<div style=\"text-align: center;\" class='error'><b>" . "PDO::errorCode(): " . $database->pdo->errorCode() . " - " . $database->pdo->errorInfo() . "</b>";
         goBack($isBack);
     }
 }
@@ -68,6 +68,6 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
 function goBack($isBack)
 {
     if ($isBack) {
-        echo "<br/><br/>" . "<button type=\"button\" onclick=\"history.back();\">Volver al formulario</button>";
+        echo "<br/><br/>" . "<button type=\"button\" onclick=\"history.back();\" class='button'>Volver al formulario</button>";
     }
 }
