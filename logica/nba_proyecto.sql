@@ -1,6 +1,6 @@
 -- noinspection SqlNoDataSourceInspectionForFile
 
-DROP DATABASE baloncesto IF EXISTS;
+DROP DATABASE IF EXISTS baloncesto;
 CREATE DATABASE baloncesto;
 USE baloncesto;
 
@@ -8,7 +8,7 @@ CREATE TABLE equipos (
   nombre varchar(20) NOT NULL,
   ciudad varchar(20) DEFAULT NULL,
   num_socios int NOT NULL,
-  anio TIMESTAMP NOT NULL
+  anio TIMESTAMP NOT NULL,
   PRIMARY KEY (Nombre)
 )engine=innodb;
 

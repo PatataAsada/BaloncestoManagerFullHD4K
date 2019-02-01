@@ -8,4 +8,18 @@
 
 include '..\funciones\funciones.php';
 
-//TODO Ejecutar script base de datos, añadir un registro, probar painTableFromQuery()
+/* 1)Testeo para sacar consulta con registros -> SUCCESS
+ * 2)Testeo para sacar consulta que devuelve 0 registros -> SUCCESS
+ * 3)Testeo para sacar consulta que devuelve error -> SUCCESS
+ * */
+
+$tabla = "SAKTAKA";
+$campos = array($tabla, ["nombre", "altura"], true);
+$header = array("NOMBRE", "ALTURA");
+paintTablesFromQuery(
+    "root",
+    "",
+    $campos,
+    $tabla,
+    $header,
+    false);
