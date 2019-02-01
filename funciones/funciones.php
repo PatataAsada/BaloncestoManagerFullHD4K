@@ -14,41 +14,50 @@ function getDatabase($username, $password)
     ]);
 }
 
-function paintTablesFromQuery($username, $password, $query, $entity, $header, $isBack)
+/**
+ * @param $username -> nombre de usuario
+ * @param $password -> contraseña de usuario
+ * @param $sql_data -> array con datos para la select
+ * @param $entity -> entidad para información adicional (Ej: empleados)
+ * @param $header -> array para establecer los valores de cabececera de tabla
+ * @param $isBack -> booleano para indicar si se quieren activar los botones de retroceso en la página web
+ */
+function paintTablesFromQuery($username, $password, $sql_data, $entity, $header, $isBack)
 {
-    //$query reemplazaría la consulta para volverse un array asociativo donde guardar la información para pasarle al select
-    //TODO Error handling
-    //$query -> [0]Tabla, ([1]Joins ||&& [1]Campos), [2]Where
+    //TODO testeo
+    //$sql_data reemplazaría la consulta para volverse un array asociativo donde guardar la información para pasarle al select
+    //$sql_data -> [0]Tabla, ([1]Joins ||&& [1]Campos), [2]Where
 
     $database = getDatabase($username, $password);
 
-    $data = $database->select($query[0], $query[1], $query[2]);
+    $data = $database->select($sql_data[0], $sql_data[1], $sql_data[2]);
 
-    if (mysqli_errno($database) == 0) {
-        if (mysqli_num_rows($data) > 0) {
-            echo "<hr/>";
-            echo "<table border style='margin: 0 auto' width='45%'>";
-            echo "<tr id='cabeza'>";
-            foreach ($header as $value) {
-                echo "<th>" . $value . "</th>";
-            }
-            echo "</tr>";
-            while ($rows = mysqli_fetch_array($data)) {
-                echo "<tr id='cuerpo'>";
-                for ($i = 0; $i < mysqli_num_fields($data); $i++) {
-                    echo "<td><b>" . $rows[$i] . "</td></b>";
-                }
-                echo "</tr>";
-            }
-            echo "</table>";
-            echo "<div style=\"text-align: center;\"><h3><b>" . "Número de $entity: " . mysqli_num_rows($data) . "</h3></b>";
-            goBack($isBack);
-        } else {
-            echo "<div style=\"text-align: center;\"><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
-            goBack($isBack);
+    if ($data || $data > 0) {
+        //Si devuelve true o es mayor de 0 es que la consulta está bien y el select devuelve datos
+        echo "<hr/>";
+        echo "<table border style='margin: 0 auto' width='45%'>";
+        echo "<tr id='cabeza'>";
+        foreach ($header as $value) {
+            //cabecera de la tabla
+            echo "<th>" . $value . "</th>";
         }
+        echo "</tr>";
+        foreach ($data as $value) {
+            //cuerpo de la tabla
+            echo "<tr id='cuerpo'>";
+            echo "<td><b>" . $value . "</td></b>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        echo "<div style=\"text-align: center;\"><h3><b>" . "Número de $entity: " . $database->count($sql_data[0], $sql_data[1], $sql_data[2]) . "</h3></b>";
+        goBack($isBack);
+    } else if ($data == 0) {
+        //Si devuelve 0 la consulta no tiene registros que devolver
+        echo "<div style=\"text-align: center;\"><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
+        goBack($isBack);
     } else {
-        echo "<div style=\"text-align: center;\"><b>" . "Error code: " . mysqli_errno($database) . " - " . mysqli_error($database) . "</b>";
+        //Posible error
+        echo "<div style=\"text-align: center;\"><b>" . "PDO::errorCode(): " . $database->pdo->errorCode() . " - " . $database->pdo->errorInfo() . "</b>";
         goBack($isBack);
     }
 }
