@@ -41,6 +41,8 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
         echo "<table border style='margin: 0 auto' width='45%'>";
 
         echo "<tr id='cabeza'>";
+        echo "<table border style='margin: 0 auto' width='45%' class='tabla'>";
+        echo "<tr class='cabeza'>";
         foreach ($header as $value) {
             //cabecera de la tabla
             echo "<th>" . $value . "</th>";
@@ -53,6 +55,8 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
             foreach ($sql_data[1] as $index) {
                 echo "<td><b>" . $value[$index] . "</td></b>";
             }
+            echo "<tr class='cuerpo'>";
+            echo "<td><b>" . $value . "</td></b>";
             echo "</tr>";
         }
         echo "</table>";
@@ -65,14 +69,15 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
         }
 
         echo "<div style=\"text-align: center;\"><h3><b>" . "Número de $entity: " . $count . "</h3></b>";
+        echo "<div style=\"text-align: center;\" class='error'><h3><b>" . "Número de $entity: " . $database->count($sql_data[0], $sql_data[1], $sql_data[2]) . "</h3></b>";
         goBack($isBack);
     } else if (empty($data)) {
         //Si devuelve 0 la consulta no tiene registros que devolver
-        echo "<div style=\"text-align: center;\"><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
+        echo "<div style=\"text-align: center;\" class='error'><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
         goBack($isBack);
     } else if (!$data) {
         //Posible error
-        echo "<div style=\"text-align: center;\"><b>" . "PDO::errorCode(): " . $database->pdo->errorCode() . " - " . $database->pdo->errorInfo() . "</b>";
+        echo "<div style=\"text-align: center;\" class='error'><b>" . "PDO::errorCode(): " . $database->pdo->errorCode() . " - " . $database->pdo->errorInfo() . "</b>";
         goBack($isBack);
     }
 }
@@ -83,6 +88,6 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
 function goBack($isBack)
 {
     if ($isBack) {
-        echo "<br/><br/>" . "<button type=\"button\" onclick=\"history.back();\">Volver al formulario</button>";
+        echo "<br/><br/>" . "<button type=\"button\" onclick=\"history.back();\" class='button'>Volver al formulario</button>";
     }
 }
