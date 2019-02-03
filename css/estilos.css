@@ -12,6 +12,13 @@ title{
 body{
     background-image: url("../img/basketball-background.jpg");
 }
+
+/*ESTILOS PARA DIVS*/
+div {
+    position: relative;
+    float: left;
+}
+/*LOGIN Y CABECERA DE TODAS LAS PÁGINAS*/
 div.title{
     width: 100%;
     height: 10%;
@@ -20,8 +27,6 @@ div.title{
 
 div.login{
     border: 3px solid darkolivegreen;
-    position: relative;
-    float: left;
     left: 37%;
     width: 25%;
     height: 30%;
@@ -29,7 +34,48 @@ div.login{
     background-color: rgba(140, 136, 136, 0.5);
     margin: 6% 0% 0% 0%;
 }
+/*MENU DE SELECCION*/
+div.menu{
+    width: 40%;
+    height: 30%;
+    margin: 3% 0% 0% 5%;
+}
 
+div.menu2{
+    width: 85%;
+    height: 30%;
+    margin: 3% 0% 0% 5%;
+}
+a.menu{
+    display: inline-block;
+    float: left;
+    font-size: x-large;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(150, 146, 146, 0.7);
+    border: 3px solid darkolivegreen;
+    border-radius: 10px;
+    margin: auto;
+    padding: 0px 5px 0px 3px;
+    color: black;
+    text-align: center;
+}
+
+/*DIV PARA FORMULARIO LIGA, EQUIPOS Y RESULTADOS*/
+div.formulario{
+    border: 3px solid darkolivegreen;
+    align-self: center;
+    width: 50%;
+    height: 50%;
+    border-radius: 20px;
+    background-color: rgba(140, 136, 136, 0.5);
+    margin: 6% 0% 0% 0%;
+}
+/*TABLAS PARA EQUIPOS*/
+
+/*TABLAS PARA RESULTADOS*/
+
+/*ESTILOS PARA FORMULARIOS*/
 form{
     margin-top: 4%;
     margin-left: 2%;
