@@ -1,13 +1,8 @@
 <?php
 /*
 TODO comprobar que existe sesion.
-TODO mostrar tabla con resultados.
 */
 ?>
-<!-- 
-TODO html
-TODO css para inicio
--->
 <!DOCTYPE html>
 <!-- TODO pasar a php para mostrar errores -->
 <html lang="en">
@@ -19,6 +14,14 @@ TODO css para inicio
 <body>
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
+    </div>
+    <div class="anadirResult">
+    </div>
+    <div class="tabla">
+    <?php
+//TODO mostrar tabla con resultados.
+
+    ?>
     </div>
     <div>
         <a href="inicio.php">Volver</a>

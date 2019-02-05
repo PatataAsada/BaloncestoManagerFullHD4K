@@ -21,7 +21,7 @@
                 <label for="pass">Contraseña: </label>
                 <input type="text" name="pass" class="text"/>
                 
-                <input type="submit" name="Entrar" class="button"/>
+                <input type="submit" name="Entrar" class="button" value="Entrar"/>
         </form>
     </div>
 </body>
