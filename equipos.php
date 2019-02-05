@@ -20,6 +20,9 @@ TODO css para inicio
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
     </div>
+    <div class="anadirEquipo">
+    <a href="crear_modificar_equipo.php" class="button">Crear equipo</a>
+    </div>
     <div>
         <a href="inicio.php">Volver</a>
     </div>
