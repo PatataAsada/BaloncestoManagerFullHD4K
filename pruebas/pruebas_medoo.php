@@ -13,13 +13,32 @@ include '..\funciones\funciones.php';
  * 3)Testeo para sacar consulta que devuelve error -> SUCCESS
  * */
 
-$tabla = "SAKTAKA";
-$campos = array($tabla, ["nombre", "altura"], true);
-$header = array("NOMBRE", "ALTURA");
-paintTablesFromQuery(
-    "root",
-    "",
-    $campos,
-    $tabla,
-    $header,
-    false);
+//$tabla = "WAKANDA";
+//$campos = array($tabla, [
+//    "nombre",
+//    "ciudad",
+//    "num_socios",
+//    "anio"], true);
+//$header = array("NOMBRE", "CIUDAD", "NUM_SOCIOS", "AÑO");
+//
+//
+//paintTablesFromQuery(
+//    "root",
+//    "",
+//    $campos,
+//    $tabla,
+//    $header,
+//    false);
+/*-----------------------------------------------------------------------------------*/
+//$tabla = "jugadores";
+//insert("root", "", array($tabla, [
+//    "nombre" => "Haramburi",
+//    "ciudad" => "Wakanda for ever",
+//    "num_socios" => "230",
+//    "anio" => strtotime("now")
+//]));
+
+
+/*---------------------------------------------------------------------------------------*/
+$tabla = "equipos";
+$where = "";
