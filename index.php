@@ -32,7 +32,7 @@ if($_POST){
     </div>
     <?php
     if($err){
-        post_error();
+        post_error("Usuario y/o contraseña incorrectas.");
     }
     ?>
 </body>
