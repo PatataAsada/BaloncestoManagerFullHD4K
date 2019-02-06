@@ -4,6 +4,7 @@
     margin: 0px;
     padding: 0px;
     color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
 }
 title{
     display: none;
@@ -42,12 +43,8 @@ div.login{
     margin: 6% 0% 0% 0%;
 }
 form>label{
-    display: inline-block;
+    display: block;
     width: auto;
-}
-form>input{
-    display: inline-block;
-    width: 80%;
 }
 
 /*MENU DE SELECCION*/
@@ -115,22 +112,18 @@ label{
     margin-top: 5%;
 }
 .text{
-    display: inline-block;
-    position: relative;
     float: left;
     font-size: large;
+    width: 80%;
     margin-top: 5%;
     margin-left: 3%;
+    color:black;
 }
-.button{
-    display: inline-block;
-    position: relative;
+input.button{
     float: right;
-    font-size: medium;
+    font-size: large;
     border-radius: 10px;
-    margin-top: 20%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-    padding: 0px 5px 0px 3px;
+    margin: 20% 5% 5% 0%;
+    padding: 2px 5px 2px 3px;
     color: black;
 }

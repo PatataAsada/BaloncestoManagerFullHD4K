@@ -116,3 +116,8 @@ function delete($username, $password, $sql_data)
         echo $e->getMessage();
     }
 }
+
+//Funcion para imprimir "error al login"
+function post_error(){
+    print "<div class='error'><h1>Usuario o contraseña equivocados</h1></div>";
+}
