@@ -25,7 +25,7 @@ if($_POST){
                 <input type="text" name="username" class="text"/>
                 
                 <label for="pass">Contraseña: </label>
-                <input type="text" name="pass" class="text"/>
+                <input type="password" name="pass" class="text"/>
                 
                 <input type="submit" name="Entrar" class="button" value="Entrar"/>
         </form>
