@@ -77,12 +77,14 @@ a.menu{
 /*DIV PARA FORMULARIO LIGA, EQUIPOS Y RESULTADOS*/
 div.formulario{
     border: 3px solid darkolivegreen;
+    left: 30%;
     align-self: center;
-    width: 50%;
-    height: 50%;
+    width: 35%;
+    height: 40%;
     border-radius: 20px;
     background-color: rgba(140, 136, 136, 0.5);
-    margin: 6% 0% 0% 0%;
+    margin: 6% 2% 5% 2%;
+    padding: auto;
 }
 form>label{
     font-size: xx-large;
@@ -114,7 +116,7 @@ label{
 .text{
     float: left;
     font-size: large;
-    width: 80%;
+    width: 90%;
     margin-top: 5%;
     margin-left: 3%;
     color:black;
@@ -123,7 +125,25 @@ input.button{
     float: right;
     font-size: large;
     border-radius: 10px;
-    margin: 20% 5% 5% 0%;
+    margin: 10% 5% 5% 0%;
     padding: 2px 5px 2px 3px;
     color: black;
+}
+a.button{
+    display: block;
+    float: right;
+    font-size: large;
+    background-color: aliceblue;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    margin: 10% 1% 1% 2%;
+    padding: 4px 4px 4px 3px;
+}
+
+div.atras{
+    float: left;
+}
+div.submit{
+    float: right;
 }
