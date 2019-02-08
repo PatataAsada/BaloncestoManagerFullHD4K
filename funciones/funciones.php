@@ -55,10 +55,11 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                     echo "<td><b>" . $value[$index] . "</td></b>";
                 }
                 echo "</tr>";
+                //TODO Pasar todos los $value[$index] al botón de editar + pasar $value[0] para el botón de borrar
             }
             echo "</table>";
 
-            //Si $sql_data[2] devuelve true es que se consulta TODA la tabla, si no es que contiene un where
+            //Si $sql_data[2] devuelve true es que se consulta TODA la tabla, si no es que contiene un array where
             if (is_bool($sql_data[2])) {
                 $count = $database->count($sql_data[0]);
             } else {
@@ -72,11 +73,6 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
             echo "<div style=\"text-align: center;\" class='error'><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
             goBack($isBack);
         }
-        //else if (!$data) {
-        //Posible error
-        //  echo "<div style=\"text-align: center;\" class='error'><b>" . "PDO::errorCode(): " . $database->pdo->errorCode() . " - " . $database->pdo->errorInfo() . "</b>";
-        //goBack($isBack);
-        //}
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -97,27 +93,59 @@ function insert($username, $password, $sql_data)
 {
     $database = getDatabase($username, $password);
     try {
-        $database->insert($sql_data[0], $sql_data[1]);
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    }
-
-}
-
-function delete($username, $password, $sql_data)
-{
-    $database = getDatabase($username, $password);
-    try {
-        $rows = $database->delete($sql_data[0], $sql_data[2]);
-        if ($rows->rowCount() > 0) {
-            echo $rows . " filas de la tabla " . $sql_data[0] . " eliminadas";
+        if ($insertedRows = $database->insert($sql_data[0], $sql_data[1])->rowCount()) {
+            echo "El equipo " . $sql_data[1]['nombre'] . " añadido";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
     }
 }
 
+function delete($username, $password, $sql_data)
+{
+    $database = getDatabase($username, $password);
+    try {
+        if ($deletedRows = $database->delete($sql_data[0], $sql_data[1])->rowCount() > 0) {
+            echo $deletedRows . " filas de la tabla " . $sql_data[0] . " eliminadas";
+        } else {
+            echo "El registro que quieres deletear no está en la BD";
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
 //Funcion para imprimir "error al login"
-function post_error($mensaje){
+function post_error($mensaje)
+{
     print "<div class='error'><h1>$mensaje</h1></div>";
 }
+
+function getPrimaryFieldName($table)
+{
+    if ($table == "equipos") {
+        return "nombre";
+    } else if ($table == "partidos") {
+        return "codigo";
+    }
+    return -1;
+}
+
+/*MÉTODOS PARA BORRAR O ACTUALIZAR EL REGISTRO DE LA TABLA*/
+function deleteByGivenPrimaryKey($username, $password, $table, $id)
+{
+    $database = getDatabase($username, $password);
+    try {
+        if ($deletedRows = $database->delete($table, [getPrimaryFieldName($table) => $id])->rowCount() > 0) {
+            echo "El registro " . $id . " de la tabla " . $table . " ha sido eliminado";
+        } else {
+            echo "El registro que quieres deletear no está en la BD";
+        }
+    } catch (PDOException $e) {
+        post_error($e->getMessage());
+    }
+}
+
+//TODO Al pulsar el botón de editar, se abrirá una ventanica con los campos del registro. Se harán las mierdas que sean y se podrá guardar o descartar
+
+/*--------------------------------------------------------*/

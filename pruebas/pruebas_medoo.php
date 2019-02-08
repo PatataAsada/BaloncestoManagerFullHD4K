@@ -30,15 +30,27 @@ include '..\funciones\funciones.php';
 //    $header,
 //    false);
 /*-----------------------------------------------------------------------------------*/
-//$tabla = "jugadores";
-//insert("root", "", array($tabla, [
-//    "nombre" => "Haramburi",
-//    "ciudad" => "Wakanda for ever",
-//    "num_socios" => "230",
-//    "anio" => strtotime("now")
-//]));
+//$trigger = true;
+//
+//if ($trigger) {
+//    //INSERCIÓN
+//    $tabla = "equipos";
+//    insert("root", "", array($tabla, [
+//        "nombre" => "Sakataka",
+//        "ciudad" => "Wakanda for ever",
+//        "num_socios" => "230",
+//        "anio" => strtotime("now")
+//    ]));
+//} else {
+//    //DELECIÓN
+//    $tabla = "equipos";
+//    $where = [$tabla, ["num_socios[>]" => 3]];
+//    delete("root", "", $where);
+//}
+
+
+deleteByGivenPrimaryKey("root", "", "equi", "Popop");
 
 
 /*---------------------------------------------------------------------------------------*/
-$tabla = "equipos";
-$where = "";
+
