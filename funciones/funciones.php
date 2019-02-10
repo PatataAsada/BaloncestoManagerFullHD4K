@@ -32,7 +32,6 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
     //TODO si la consulta no trae datos, habilitar botones y funcionalidad para que pueda introducirlos
 
     $database = getDatabase($username, $password);
-
     try {
         $data = $database->select($sql_data[0], $sql_data[1], $sql_data[2]);
         if ($data && $data > 0) {
@@ -55,7 +54,7 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                     echo "<td><b>" . $value[$index] . "</td></b>";
                 }
                 echo "</tr>";
-                //TODO Pasar todos los $value[$index] al botón de editar + pasar $value[0] para el botón de borrar
+                //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar
             }
             echo "</table>";
 
@@ -76,7 +75,7 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
-
+    $database = null;
 }
 
 /**
@@ -99,6 +98,7 @@ function insert($username, $password, $sql_data)
     } catch (Exception $e) {
         echo $e->getMessage();
     }
+    $database = null;
 }
 
 function delete($username, $password, $sql_data)
@@ -113,6 +113,7 @@ function delete($username, $password, $sql_data)
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+    $database = null;
 }
 
 //Funcion para imprimir "error al login"
@@ -134,6 +135,7 @@ function getPrimaryFieldName($table)
 /*MÉTODOS PARA BORRAR O ACTUALIZAR EL REGISTRO DE LA TABLA*/
 function deleteByGivenPrimaryKey($username, $password, $table, $id)
 {
+    //TODO Usar en paintTablesFromQuery
     $database = getDatabase($username, $password);
     try {
         if ($deletedRows = $database->delete($table, [getPrimaryFieldName($table) => $id])->rowCount() > 0) {
@@ -144,8 +146,23 @@ function deleteByGivenPrimaryKey($username, $password, $table, $id)
     } catch (PDOException $e) {
         post_error($e->getMessage());
     }
+    $database = null;
 }
 
-//TODO Al pulsar el botón de editar, se abrirá una ventanica con los campos del registro. Se harán las mierdas que sean y se podrá guardar o descartar
+function update($username, $password, $sql_data)
+{
+    //TODO Usar en paintTablesFromQuery
+    $database = getDatabase($username, $password);
+    try {
+        if ($updatedRows = $database->update($sql_data[0], $sql_data[1], $sql_data[2])->rowCount() > 0) {
+            echo "El registro " . $sql_data[2]['nombre'] . " de la tabla " . $sql_data[0] . " ha sido actualizado";
+        } else {
+            echo "Todos los campos ya están actualizados, pruebe a insertar un nuevo dato";
+        }
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+    $database = null;
+}
 
 /*--------------------------------------------------------*/
