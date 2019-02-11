@@ -41,9 +41,9 @@ $puntos_local = "";
                 <?php
                     echo "<input type='number' name='puntos_local' class='text' value='$puntos_local'/>"
                 ?>
-                
+
                 <div class="atras">
-                    <a href="inicio.php" class="button">Volver</a>
+                    <a href="resultados.php" class="button">Volver</a>
                 </div>
                 <input type="submit" name="Entrar" class="button" value="Entrar"/>
         </form>

@@ -44,7 +44,7 @@ TODO si es modificar un equipo rellenar los campos del formulario con los datos 
                     echo "<input type='date' name='anio' class='text' value='$anio'/>"
                 ?>
                 <div class="atras">
-                    <a href="inicio.php" class="button">Volver</a>
+                    <a href="equipos.php" class="button">Volver</a>
                 </div>
                 <input type="submit" name="Entrar" class="button" value="Entrar"/>
         </form>

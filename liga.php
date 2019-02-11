@@ -39,7 +39,7 @@ $liga_desc = "";
                 <?php
                     echo "<textarea name='liga_desc' class='text' value='$anno_liga_inicio'></textarea>";
                 ?>
-                <div class="atras">
+                <div class="atras2">
                     <a href="inicio.php" class="button">Volver</a>
                 </div>
                 <div class="submit">

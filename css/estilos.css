@@ -145,6 +145,9 @@ div.atras{
     float: right;
     left: -16%;
 }
+div.atras2{
+    float: left;
+}
 div.submit{
     float: right;
 }
