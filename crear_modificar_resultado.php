@@ -3,10 +3,10 @@
 TODO comprobar que existe sesion.
 TODO si es modificar un equipo rellenar los campos del formulario con los datos actuales del resultado.
 */
-$nom_liga = "";
-$anno_liga_inicio = "";
-$anno_liga_fin = "";
-$liga_desc = "";
+$equipo_visitante = "";
+$equipo_local = "";
+$puntos_visitante = "";
+$puntos_local = "";
 ?>
 <!DOCTYPE html>
 <!-- TODO pasar a php para mostrar errores -->
@@ -20,24 +20,32 @@ $liga_desc = "";
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
     </div>
-    <div class="login">
+    <div class="formulario">
         <form action="funciones/conexion.php" method="POST" >
-                <label for="username">Nombre de usuario: </label>
+                <label for="equipo_visitante">Equipo visitante: </label>
                 <?php
-                echo "<input type='text' name='username' value='$nom_liga' class='text'/>";
+                echo "<input type='text' name='equipo_visitante' value='$equipo_visitante' class='text'/>";
                 ?>
                 
-                <label for="pass">Contraseña: </label>
+                <label for="puntos_visitante">Puntuación equipo visitante: </label>
                 <?php
-                    echo "<input type='text' name='' class='text'/>"
+                echo "<input type='number' name='puntos_visitante' value='$puntos_visitante' class='text'/>";
                 ?>
                 
+                <label for="equipo_local">Equipo local: </label>
+                <?php
+                    echo "<input type='text' name='equipo_local' class='text' value='$equipo_local'/>"
+                ?>
+
+                <label for="puntos_local">Puntuación equipo local: </label>
+                <?php
+                    echo "<input type='number' name='puntos_local' class='text' value='$puntos_local'/>"
+                ?>
+                
+                <div class="atras">
+                    <a href="inicio.php" class="button">Volver</a>
+                </div>
                 <input type="submit" name="Entrar" class="button" value="Entrar"/>
         </form>
     </div>
-    <?php
-    if($err){
-        post_error("Usuario y/o contraseña incorrectas.");
-    }
-    ?>
 </body>
