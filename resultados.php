@@ -8,7 +8,7 @@ TODO comprobar que existe sesion.
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>Liga baloncesto</title>
     <link rel="stylesheet" type="text/css" href="css\estilos.css">
 </head>
 <body>

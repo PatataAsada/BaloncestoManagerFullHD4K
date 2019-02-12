@@ -15,7 +15,7 @@ TODO si es modificar un equipo rellenar los campos del formulario con los datos 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>Liga baloncesto</title>
     <link rel="stylesheet" type="text/css" href="css\estilos.css">
 </head>
 <body>
