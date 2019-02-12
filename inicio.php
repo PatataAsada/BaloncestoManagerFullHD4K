@@ -1,7 +1,10 @@
 <?php
 /*
-TODO comprobar que existe sesion.
+comprobar que existe sesion.
 */
+if(!isset($_SESSION)){
+    header("Location: ./index.php");
+}
 ?>
 <!-- 
 TODO html
@@ -18,6 +21,7 @@ TODO css para inicio
 <body>
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
+        <a href="funciones/desconectar.php" class="disconnect">Desconectar</a>
     </div>
     <div class="menu">
         <a href="liga.php" class="menu"><h1>LIGA</h1><a>

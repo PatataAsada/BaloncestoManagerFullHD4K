@@ -33,6 +33,10 @@ div.title{
     height: 10%;
     background-color: rgba(28, 102, 67, 0.5);
 }
+div>h1{
+    display: block;
+    float: left;
+}
 
 div.login{
     left: 35%;
@@ -140,6 +144,17 @@ a.button{
     text-align: center;
     margin: 10% 1% 1% 2%;
     padding: 5%;
+}
+a.disconnect{
+    display: block;
+    float: right;
+    font-size: large;
+    background-color: aliceblue;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    margin: 5px 2px 0% 0%;
+    padding: 3px;
 }
  #button{
      padding: 20%;

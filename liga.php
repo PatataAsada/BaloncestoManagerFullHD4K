@@ -1,7 +1,8 @@
 <?php
-/*
-TODO comprobar que existe sesion.
-*/
+//Comprueba que existe la sesion antes de hacer nada.
+if(!isset($_SESSION)){
+    header("Location: index.php");
+}
 $nom_liga = "";
 $anno_liga_inicio = "";
 $anno_liga_fin = "";

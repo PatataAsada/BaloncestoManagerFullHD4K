@@ -1,5 +1,5 @@
 <?php
-//TODO comprobar en php si hay intento de inicio de sesion y mostrarlo aqui.
+//comprobar en php si hay intento de inicio de sesion y mostrarlo aqui.
 require 'funciones/funciones.php';
 $err = false;
 if($_POST){

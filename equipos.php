@@ -1,6 +1,11 @@
 <?php
 /*
-TODO comprobar que existe sesion.
+comprobar que existe sesion.
+*/
+if(!isset($_SESSION)){
+    header("Location: ./index.php");
+}
+/*
 TODO mostrar equipos en tabla.
 */
 ?>
