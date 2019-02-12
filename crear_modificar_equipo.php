@@ -22,6 +22,9 @@ TODO si es modificar un equipo rellenar los campos del formulario con los datos 
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
     </div>
+    <div class="volver">
+        <a href="equipos.php" class="button" id="button">Volver</a>
+    </div>
     <div class="formulario">
         <form action="funciones/conexion.php" method="POST" >
                 <label for="nom_equipo">Nombre de equipo: </label>
@@ -43,10 +46,8 @@ TODO si es modificar un equipo rellenar los campos del formulario con los datos 
                 <?php
                     echo "<input type='date' name='anio' class='text' value='$anio'/>"
                 ?>
-                <div class="atras">
-                    <a href="equipos.php" class="button">Volver</a>
-                </div>
-                <input type="submit" name="Entrar" class="button" value="Entrar"/>
+                
+                <input type="submit" name="Entrar" class="button"  value="Entrar"/>
         </form>
     </div>
 </body>

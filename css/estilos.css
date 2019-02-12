@@ -13,6 +13,7 @@ title{
 body{
     background-image: url("../img/basketball-background.jpg");
     background-repeat: no-repeat;
+    background-size: auto;
 }
 
 /*ESTILOS PARA DIVS*/
@@ -83,7 +84,7 @@ div.formulario{
     height: 40%;
     border-radius: 20px;
     background-color: rgba(140, 136, 136, 0.5);
-    margin: 6% 2% 5% 2%;
+    margin: 3% 2% 5% 2%;
     padding: auto;
 }
 form>label{
@@ -95,7 +96,7 @@ div.tabla{
 
 }
 div.anadirEquipo{
-
+    left: 15%;
 }
 div.anadirResult{
 
@@ -138,16 +139,24 @@ a.button{
     color: black;
     text-align: center;
     margin: 10% 1% 1% 2%;
-    padding: 4px 4px 4px 3px;
+    padding: 5%;
 }
+ #button{
+     padding: 20%;
+     font-size: 200%;
+ }
 
-div.atras{
-    float: right;
-    left: -16%;
-}
 div.atras2{
     float: left;
 }
 div.submit{
     float: right;
+}
+
+div.volver{
+    float: right;
+    left: -15%;
+    margin: 1% 0% 0% 0%;
+    height: 15%;
+    width: 15%;
 }

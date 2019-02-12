@@ -24,9 +24,9 @@ TODO comprobar que existe sesion.
     ?>
     </div>
     <div class="anadirEquipo">
-    <a href="crear_modificar_resultado.php" class="button">Crear resultado</a>
+    <a href="crear_modificar_resultado.php" class="button" id="button">Crear resultado</a>
     </div>
-    <div>
-        <a href="inicio.php">Volver</a>
+    <div class="volver">
+        <a href="inicio.php" class="button" id="button">Volver</a>
     </div>
 </body>
