@@ -5,12 +5,11 @@ $nom_equipo = "";
 $ciudad = "";
 $num_socios = 0;
 $anio = "";
-/*
-TODO si es modificar un equipo rellenar los campos del formulario con los datos actuales del equipo.
-*/
+
+//TODO si es modificar un equipo rellenar los campos del formulario con los datos actuales del equipo.
+//esto se puede hacer con un GET con el id o el nombre del equipo a modificar.
 ?>
 <!DOCTYPE html>
-<!-- TODO pasar a php para mostrar errores -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
