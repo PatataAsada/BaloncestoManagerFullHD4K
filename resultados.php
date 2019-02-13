@@ -5,7 +5,6 @@ comprobar que existe sesion.
 require 'funciones\check_conexion.php';
 ?>
 <!DOCTYPE html>
-<!-- TODO pasar a php para mostrar errores -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">

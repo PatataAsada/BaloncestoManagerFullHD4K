@@ -8,7 +8,6 @@ $liga_desc = "";
 //TODO capturar datos de antigua liga en los valores de arriba
 ?>
 <!DOCTYPE html>
-<!-- TODO pasar a php para mostrar errores -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
