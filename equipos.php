@@ -18,10 +18,15 @@ TODO mostrar equipos en tabla.
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
     </div>
-    <div class="anadirEquipo">
+    <div class="anadir">
     <a href="crear_modificar_equipo.php" class="button" id="button">Crear equipo</a>
     </div>
     <div class="volver">
         <a href="inicio.php" class="button" id="button">Volver</a>
+    </div>
+    <div class="tabla">
+        <?php
+        //TODO pintar tabla
+        ?>
     </div>
 </body>

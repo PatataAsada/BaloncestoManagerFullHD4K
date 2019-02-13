@@ -22,12 +22,6 @@ div {
     float: left;
 }
 /*LOGIN Y CABECERA DE TODAS LAS PÁGINAS*/
-div.holder{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
 div.title{
     width: 100%;
     height: 10%;
@@ -97,13 +91,13 @@ form>label{
 }
 /*TABLAS PARA EQUIPOS*//*TABLAS PARA RESULTADOS*/
 div.tabla{
-
+    width: 75%;
+    left: 7%;
+    margin: 2% 0% 0% 0%;
+    padding: inherit;
 }
-div.anadirEquipo{
+div.anadir{
     left: 15%;
-}
-div.anadirResult{
-
 }
 
 /*ESTILOS PARA FORMULARIOS*/

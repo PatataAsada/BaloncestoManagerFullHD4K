@@ -15,7 +15,11 @@ require 'funciones\check_conexion.php';
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
     </div>
-    <div class="anadirResult">
+    <div class="anadir">
+    <a href="crear_modificar_resultado.php" class="button" id="button">Crear resultado</a>
+    </div>
+    <div class="volver">
+        <a href="inicio.php" class="button" id="button">Volver</a>
     </div>
     <div class="tabla">
     <?php
@@ -23,10 +27,5 @@ require 'funciones\check_conexion.php';
 
     ?>
     </div>
-    <div class="anadirEquipo">
-    <a href="crear_modificar_resultado.php" class="button" id="button">Crear resultado</a>
-    </div>
-    <div class="volver">
-        <a href="inicio.php" class="button" id="button">Volver</a>
-    </div>
+    
 </body>
