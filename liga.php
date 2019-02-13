@@ -1,8 +1,6 @@
 <?php
 //Comprueba que existe la sesion antes de hacer nada.
-if(!isset($_SESSION)){
-    header("Location: index.php");
-}
+require 'funciones\check_conexion.php';
 $nom_liga = "";
 $anno_liga_inicio = "";
 $anno_liga_fin = "";

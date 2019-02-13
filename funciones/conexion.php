@@ -9,6 +9,7 @@ if($_POST){
     $user = $_POST['username'];
     $pass = $_POST['pass'];
     try{
+        session_start();
         $database = getDatabase($user,$pass);
         $_SESSION['user'] = $user;
         $_SESSION['pass'] = $pass;

@@ -2,9 +2,7 @@
 /*
 comprobar que existe sesion.
 */
-if(!isset($_SESSION)){
-    header("Location: ./index.php");
-}
+require 'funciones\check_conexion.php';
 ?>
 <!-- 
 TODO html

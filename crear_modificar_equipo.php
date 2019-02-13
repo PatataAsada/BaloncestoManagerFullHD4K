@@ -1,7 +1,6 @@
 <?php
-/*
-TODO comprobar que existe sesion.
-*/
+/* comprobar que existe sesion.*/
+require 'funciones\check_conexion.php';
 $nom_equipo = "";
 $ciudad = "";
 $num_socios = 0;

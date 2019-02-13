@@ -1,6 +1,7 @@
 <?php
+/*comprobar que existe sesion.*/
+require 'funciones\check_conexion.php';
 /*
-TODO comprobar que existe sesion.
 TODO si es modificar un equipo rellenar los campos del formulario con los datos actuales del resultado.
 */
 $equipo_visitante = "";
