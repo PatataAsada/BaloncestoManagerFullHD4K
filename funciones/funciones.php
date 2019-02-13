@@ -166,12 +166,3 @@ function update($username, $password, $sql_data)
 }
 
 /*--------------------------------------------------------*/
-
-function conecta($username,$password){
-    try{
-        getDatabase($username,$password);
-        return true;
-    }catch(Exception $e){
-        return false;
-    }
-}
