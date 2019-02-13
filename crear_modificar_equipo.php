@@ -7,7 +7,13 @@ $num_socios = 0;
 $anio = "";
 
 //TODO si es modificar un equipo rellenar los campos del formulario con los datos actuales del equipo.
-//esto se puede hacer con un GET con el id o el nombre del equipo a modificar.
+
+if(isset($_GET['nom_equipo'])){
+    $nom_equipo = $_GET['nom_equipo'];
+    $ciudad = $_GET['ciudad'];
+    $num_socios = $_GET['num_socios'];
+    $anio = $_GET['anio'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +30,7 @@ $anio = "";
         <a href="equipos.php" class="button" id="button">Volver</a>
     </div>
     <div class="formulario">
-        <form action="funciones/subir_equipo.php" method="POST" >
+        <form action="funciones/subir_data.php" method="POST" >
                 <label for="nom_equipo">Nombre de equipo: </label>
                 <?php
                 echo "<input type='text' name='nom_equipo' value='$nom_equipo' class='text'/>";
@@ -42,10 +48,14 @@ $anio = "";
                 
                 <label for="anio">Año de creación del equipo: </label>
                 <?php
-                    echo "<input type='date' name='anio' class='text' value='$anio'/>"
-                ?>
+                    echo "<input type='date' name='anio' class='text' value='$anio'/>";
                 
-                <input type="submit" name="Entrar" class="button"  value="Entrar"/>
+                    if(isset($_GET['nom_equipo'])){
+                        echo '<input type="submit" name="Entrar" class="button"  value="Actualizar"/>';
+                    }else{
+                        echo '<input type="submit" name="Entrar" class="button"  value="Crear"/>';
+                    }
+                ?>
         </form>
     </div>
 </body>
