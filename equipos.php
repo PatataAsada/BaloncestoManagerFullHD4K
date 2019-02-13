@@ -5,7 +5,7 @@ comprobar que existe sesion.
 require 'funciones/funciones.php';
 require 'funciones/check_conexion.php';
 $header = ["nombre","ciudad","socios","año","actualizar","eliminar"];
-$sql_data = ["equipos","*",""];
+$sql_data = ["equipos",['nombre','ciudad','num_socios','anio'],""];
 ?>
 <!DOCTYPE html>
 <html lang="en">

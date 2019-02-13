@@ -36,11 +36,9 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
         $data = $database->select($sql_data[0], $sql_data[1], $sql_data[2]);
         if ($data && $data > 0) {
             //Si devuelve true o es mayor de 0 es que la consulta está bien y el select devuelve datos
-            echo "<hr/>";
-            echo "<table border style='margin: 0 auto' width='45%'>";
+            echo "<table class='tablita'>";
 
-            echo "<table border style='margin: 0 auto' width='45%' class='tabla'>";
-            echo "<tr class='cabeza'>";
+            echo "<tr>";
             foreach ($header as $value) {
                 //cabecera de la tabla
                 echo "<th>" . $value . "</th>";
@@ -49,9 +47,9 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
 
             foreach ($data as $value) {
                 //cuerpo de la tabla
-                echo "<tr class='cuerpo'>";
+                echo "<tr>";
                 foreach ($sql_data[1] as $index) {
-                    echo "<td><b>" . $value[$index] . "</td></b>";
+                    echo "<td>" . $value[$index] . "</td>";
                 }
                 echo "</tr>";
                 //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar

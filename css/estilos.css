@@ -91,6 +91,7 @@ form>label{
 }
 /*TABLAS PARA EQUIPOS*//*TABLAS PARA RESULTADOS*/
 div.tabla{
+    display: table;
     width: 80%;
     float: left;
     left: 10%;
@@ -174,4 +175,29 @@ div.volver{
     margin: 0.5% 0% 0% 0%;
     height: 15%;
     width: 15%;
+}
+/* PARA LA TABLA */
+.tablita{
+    background-color: azure;
+    border: 1px solid black;
+    width: 100%;
+    height: auto;
+}
+table{
+    display: table;
+    color: black;
+}
+tr{
+    display: table-row;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid black;
+}
+th,td{
+    border: 1px solid black;
+    text-align: center;
+    display: table-cell;
+    width: 20%;
+    font-weight: bold;
+    color: black;
 }
