@@ -2,10 +2,10 @@
 /*
 comprobar que existe sesion.
 */
-require 'funciones\check_conexion.php';
-/*
-TODO mostrar equipos en tabla.
-*/
+require 'funciones/funciones.php';
+require 'funciones/check_conexion.php';
+$header = ["nombre","ciudad","socios","año","actualizar","eliminar"];
+$sql_data = ["equipos","*",""];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +27,7 @@ TODO mostrar equipos en tabla.
     <div class="tabla">
         <?php
         //TODO pintar tabla
+        paintTablesFromQuery($_SESSION['user'],$_SESSION['pass'],$sql_data,"equipos",$header,false);
         ?>
     </div>
 </body>

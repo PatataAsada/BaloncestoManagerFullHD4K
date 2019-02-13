@@ -25,7 +25,7 @@ TODO si es modificar un equipo rellenar los campos del formulario con los datos 
         <a href="equipos.php" class="button" id="button">Volver</a>
     </div>
     <div class="formulario">
-        <form action="funciones/conexion.php" method="POST" >
+        <form action="funciones/subir_equipo.php" method="POST" >
                 <label for="nom_equipo">Nombre de equipo: </label>
                 <?php
                 echo "<input type='text' name='nom_equipo' value='$nom_equipo' class='text'/>";
