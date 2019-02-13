@@ -8,9 +8,9 @@
             $ciudad = $_POST['ciudad'];
             $num_socios = $_POST['num_socios'];
 
-            $sql_data = ["equipos",[$nom_equipo,$ciudad,$num_socios]];
+            $sql_data = ["equipos",["nombre"=>$nom_equipo,"ciudad"=>$ciudad,"num_socios"=>$num_socios]];
             insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            //header("Location: ../equipos.php");
+            header("Location: ../equipos.php");
         }else{
             header("Location: ../resultados.php");
         }   
