@@ -16,16 +16,18 @@ $sql_data = ["partidos","equipo_local,equipo_visitante,puntos_local,puntos_visit
     <div class="title">
         <h1>LIGA DE BALONCESTO</h1>
     </div>
-    <div class="anadir">
-    <a href="crear_modificar_resultado.php" class="button" id="button">Crear resultado</a>
-    </div>
-    <div class="volver">
-        <a href="inicio.php" class="button" id="button">Volver</a>
+    <div class="botones">
+        <div class="anadir">
+            <a href="crear_modificar_resultado.php" class="button" id="button">Crear resultado</a>
+        </div>
+        <div class="volver">
+            <a href="inicio.php" class="button" id="button">Volver</a>
+        </div>
     </div>
     <div class="tabla">
     <?php
-//TODO mostrar tabla con resultados.
-paintTablesFromQuery($_SESSION['user'],$_SESSION['pass'],$sql_data,"resultados",$header,false);
+    //TODO mostrar tabla con resultados.
+    paintTablesFromQuery($_SESSION['user'],$_SESSION['pass'],$sql_data,"resultados",$header,false);
     ?>
     </div>
     

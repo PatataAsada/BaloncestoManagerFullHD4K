@@ -91,13 +91,19 @@ form>label{
 }
 /*TABLAS PARA EQUIPOS*//*TABLAS PARA RESULTADOS*/
 div.tabla{
-    width: 75%;
-    left: 7%;
+    width: 80%;
+    float: left;
+    left: 10%;
+    top: 5%;
     margin: 2% 0% 0% 0%;
     padding: inherit;
 }
 div.anadir{
     left: 15%;
+}
+div.botones{
+    width: 100%;
+    height: auto;
 }
 
 /*ESTILOS PARA FORMULARIOS*/
@@ -165,7 +171,7 @@ div.submit{
 div.volver{
     float: right;
     left: -15%;
-    margin: 1% 0% 0% 0%;
+    margin: 0.5% 0% 0% 0%;
     height: 15%;
     width: 15%;
 }
