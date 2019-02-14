@@ -51,6 +51,8 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 foreach ($sql_data[1] as $index) {
                     echo "<td>" . $value[$index] . "</td>";
                 }
+                //<i class="far fa-edit"></i> esto es para el boton de editar.
+                //<i class="far fa-trash-alt"></i> este es para el boton de eliminar.
                 echo "</tr>";
                 //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar
             }
