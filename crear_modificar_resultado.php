@@ -8,6 +8,14 @@ $equipo_visitante = "";
 $equipo_local = "";
 $puntos_visitante = "";
 $puntos_local = "";
+
+if(isset($_GET['equipo_local'])){
+    $equipo_local = $_GET['equipo_local'];
+    $puntos_local = $_GET['puntos_local'];
+    $equipo_visitante = $_GET['equipo_visitante'];
+    $puntos_visitante = $_GET['puntos_visitante'];
+    $array = [$equipo_local,$puntos_local,$equipo_visitante,$puntos_visitante];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +32,7 @@ $puntos_local = "";
         <a href="resultados.php" class="button" id="button">Volver</a>
     </div>
     <div class="formulario">
-        <form action="funciones/conexion.php" method="POST" >
+        <form action="funciones/subir_data.php" method="POST" >
                 <label for="equipo_visitante">Equipo visitante: </label>
                 <?php
                 echo "<input type='text' name='equipo_visitante' value='$equipo_visitante' class='text'/>";
@@ -42,11 +50,15 @@ $puntos_local = "";
 
                 <label for="puntos_local">Puntuación equipo local: </label>
                 <?php
-                    echo "<input type='number' name='puntos_local' class='text' value='$puntos_local'/>"
-                ?>
-
+                    echo "<input type='number' name='puntos_local' class='text' value='$puntos_local'/>";
                 
-                <input type="submit" name="Entrar" class="button" value="Entrar"/>
+                    if(isset($_GET['equipo_local'])){
+                        echo "<input type='hidden' name='old' value='$array'>";
+                        echo '<input type="submit" name="Entrar" class="button"  value="Actualizar"/>';
+                    }else{
+                        echo '<input type="submit" name="Entrar" class="button"  value="Crear"/>';
+                    }
+                ?>
         </form>
     </div>
 </body>

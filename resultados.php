@@ -2,8 +2,8 @@
 //comprobar que existe sesion.
 require 'funciones\check_conexion.php';
 require 'funciones/funciones.php';
-$header = ["local","visitante","puntos local", "puntos visitante"];
-$sql_data = ["partidos","equipo_local,equipo_visitante,puntos_local,puntos_visitante",""]
+$header = ["local","puntos local","visitante", "puntos visitante","editar","eliminar"];
+$sql_data = ["partidos",["equipo_local","puntos_local","equipo_visitante","puntos_visitante"],""];
 ?>
 <!DOCTYPE html>
 <html lang="en">

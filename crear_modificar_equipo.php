@@ -12,7 +12,7 @@ if(isset($_GET['nom_equipo'])){
     $nom_equipo = $_GET['nom_equipo'];
     $ciudad = $_GET['ciudad'];
     $num_socios = $_GET['num_socios'];
-    $anio = $_GET['anio'];
+    $array = [$nom_equipo,$ciudad,$num_socios];
 }
 ?>
 <!DOCTYPE html>
@@ -46,6 +46,7 @@ if(isset($_GET['nom_equipo'])){
                 echo "<input type='number' name='num_socios' value='$num_socios' class='text'/>";
                 
                     if(isset($_GET['nom_equipo'])){
+                        echo "<input type='hidden' name='old' value='$array'>";
                         echo '<input type="submit" name="Entrar" class="button"  value="Actualizar"/>';
                     }else{
                         echo '<input type="submit" name="Entrar" class="button"  value="Crear"/>';
