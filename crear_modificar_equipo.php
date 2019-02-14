@@ -44,11 +44,6 @@ if(isset($_GET['nom_equipo'])){
                 <label for="num_socios">Número de socios: </label>
                 <?php
                 echo "<input type='number' name='num_socios' value='$num_socios' class='text'/>";
-                ?>
-                
-                <label for="anio">Año de creación del equipo: </label>
-                <?php
-                    echo "<input type='date' name='anio' class='text' value='$anio'/>";
                 
                     if(isset($_GET['nom_equipo'])){
                         echo '<input type="submit" name="Entrar" class="button"  value="Actualizar"/>';
