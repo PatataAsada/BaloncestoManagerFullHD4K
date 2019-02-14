@@ -29,7 +29,7 @@ $sql_data = ["equipos",['nombre','ciudad','num_socios','anio'],""];
     </div>
     <div class="tabla">
         <?php
-        //TODO pintar tabla
+        //pintar tabla
         paintTablesFromQuery($_SESSION['user'],$_SESSION['pass'],$sql_data,"equipos",$header,false);
         ?>
     </div>
