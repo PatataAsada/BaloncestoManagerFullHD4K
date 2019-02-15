@@ -204,3 +204,8 @@ th,td{
 td{
     padding: 2% 0% 2% 0%;
 }
+#edit-delete{
+    display: block;
+    color: black;
+    font-size: x-large;
+}

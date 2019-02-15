@@ -28,7 +28,7 @@
             unset($_POST['puntos_local']);
             header("Location: ../resultados.php");
         }  
-    }else{
+    }elseif($_POST['Entrar']=='Actualizar'){
         print($_POST['Entrar']);
         //header("Location: ../inicio.php");
     }

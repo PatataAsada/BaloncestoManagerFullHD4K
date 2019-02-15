@@ -5,6 +5,7 @@ $nom_liga = "";
 $anno_liga_inicio = "";
 $anno_liga_fin = "";
 $liga_desc = "";
+eliminar_old();
 //TODO capturar datos de antigua liga en los valores de arriba
 ?>
 <!DOCTYPE html>

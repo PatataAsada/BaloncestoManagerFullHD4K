@@ -8,10 +8,10 @@ $anio = "";
 
 //TODO si es modificar un equipo rellenar los campos del formulario con los datos actuales del equipo.
 
-if(isset($_GET['nom_equipo'])){
-    $nom_equipo = $_GET['nom_equipo'];
-    $ciudad = $_GET['ciudad'];
-    $num_socios = $_GET['num_socios'];
+if(isset($_SESSION['equipo'])){
+    $nom_equipo = $_SESSION['equipo'];
+    $ciudad = $_SESSION['equipo'];
+    $num_socios = $_SESSION['equipo'];
     $array = [$nom_equipo,$ciudad,$num_socios];
 }
 ?>

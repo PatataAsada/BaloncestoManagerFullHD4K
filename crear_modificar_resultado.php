@@ -9,11 +9,11 @@ $equipo_local = "";
 $puntos_visitante = "";
 $puntos_local = "";
 
-if(isset($_GET['equipo_local'])){
-    $equipo_local = $_GET['equipo_local'];
-    $puntos_local = $_GET['puntos_local'];
-    $equipo_visitante = $_GET['equipo_visitante'];
-    $puntos_visitante = $_GET['puntos_visitante'];
+if(isset($_SESSION['resultado'])){
+    $equipo_local = $_SESSION['resultado'][0];
+    $puntos_local = $_SESSION['resultado'][1];
+    $equipo_visitante = $_SESSION['resultado'][2];
+    $puntos_visitante = $_SESSION['resultado'][3];
     $array = [$equipo_local,$puntos_local,$equipo_visitante,$puntos_visitante];
 }
 ?>
