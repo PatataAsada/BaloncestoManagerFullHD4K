@@ -6,6 +6,7 @@ require 'funciones/funciones.php';
 require 'funciones/check_conexion.php';
 $header = ["nombre","ciudad","socios","año","actualizar","eliminar"];
 $sql_data = ["equipos",['nombre','ciudad','num_socios','anio'],""];
+eliminar_old();
 ?>
 <!DOCTYPE html>
 <html lang="en">

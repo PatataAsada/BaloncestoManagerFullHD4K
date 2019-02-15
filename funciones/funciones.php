@@ -52,7 +52,9 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                     echo "<td>" . $value[$index] . "</td>";
                 }
                 //<i class="far fa-edit"></i> esto es para el boton de editar.
-                //<i class="far fa-trash-alt"></i> este es para el boton de eliminar.
+                //<i class='far fa-trash-alt'></i> este es para el boton de eliminar.
+                echo "<td><button onClick='edit_data($value)'><i class='far fa-edit' id='edit-delete'></i></button></td>";
+                echo "<td><button onClick='delete_data($value)'><i class='far fa-trash-alt' id='edit-delete'></i></i></button></td>";
                 echo "</tr>";
                 //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar
             }
@@ -166,3 +168,28 @@ function update($username, $password, $sql_data)
 }
 
 /*--------------------------------------------------------*/
+
+function delete_data($data,$tabla){
+    if($tabla == "partidos"){
+        deleteByGivenPrimaryKey($_SESSION['user'],$_SESSION['pass'],$tabla,$data['codigo']);
+        header("Location: resultados.php");
+        exit();
+    }
+    if($tabla=="equipos"){
+        deleteByGivenPrimaryKey($_SESSION['user'],$_SESSION['pass'],$tabla,$data['nombre']);
+        header("Location: equipos.php");
+        exit();
+    }
+}
+function edit_data($data,$tabla){
+    if($tabla == "partidos"){
+        $_SESSION['resultado'] = $data;
+        header("Location: crear_modificar_resultado.php");
+        exit();
+    }
+    if($tabla=="equipos"){
+        $_SESSION['equipo'] = $data;
+        header("Location: crear_modificar_equipo.php");
+        exit();
+    }
+}
