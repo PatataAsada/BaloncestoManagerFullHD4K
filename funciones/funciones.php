@@ -53,8 +53,8 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 }
                 //<i class="far fa-edit"></i> esto es para el boton de editar.
                 //<i class='far fa-trash-alt'></i> este es para el boton de eliminar.
-                echo "<td><button onClick='edit_data($value)'><i class='far fa-edit' id='edit-delete'></i></button></td>";
-                echo "<td><button onClick='delete_data($value)'><i class='far fa-trash-alt' id='edit-delete'></i></i></button></td>";
+                echo "<td><button onClick='edit_data(".$value.",".$sql_data[0].")'><i class='far fa-edit' id='edit-delete'></i></button></td>";
+                echo "<td><button onClick='delete_data(".$value[$sql_data[1][0]].",".$sql_data[0].")'><i class='far fa-trash-alt' id='edit-delete'></i></i></button></td>";
                 echo "</tr>";
                 //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar
             }
@@ -166,12 +166,10 @@ function update($username, $password, $sql_data)
     }
     $database = null;
 }
-
-/*--------------------------------------------------------*/
-
-function delete_data($data,$tabla){
+//Funciones para los botones de eliminar y editar
+function delete_data($primary_key,$tabla){
     if($tabla == "partidos"){
-        deleteByGivenPrimaryKey($_SESSION['user'],$_SESSION['pass'],$tabla,$data['codigo']);
+        deleteByGivenPrimaryKey($_SESSION['user'],$_SESSION['pass'],$tabla,$primary_key);
         header("Location: resultados.php");
         exit();
     }
@@ -181,6 +179,7 @@ function delete_data($data,$tabla){
         exit();
     }
 }
+
 function edit_data($data,$tabla){
     if($tabla == "partidos"){
         $_SESSION['resultado'] = $data;
@@ -193,3 +192,5 @@ function edit_data($data,$tabla){
         exit();
     }
 }
+
+/*--------------------------------------------------------*/
