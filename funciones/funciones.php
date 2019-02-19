@@ -53,8 +53,12 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 }
                 //<i class="far fa-edit"></i> esto es para el boton de editar.
                 //<i class='far fa-trash-alt'></i> este es para el boton de eliminar.
-                echo "<td><button onClick='edit_data(".$value.",".$sql_data[0].")'><i class='far fa-edit' id='edit-delete'></i></button></td>";
-                echo "<td><button onClick='delete_data(".$value[$sql_data[1][0]].",".$sql_data[0].")'><i class='far fa-trash-alt' id='edit-delete'></i></i></button></td>";
+                echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='Actualizar' id='edit-delete'><i class='far fa-edit'></i></button>";
+                foreach ($value as $dato){
+                    echo "<input name='result[]' type='hidden' value='".$dato."' >";
+                }
+                echo "</form></td>";
+                echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='' 'id='edit-delete'><i class='far fa-trash-alt'></i></button></form></td>";
                 echo "</tr>";
                 //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar
             }
@@ -192,5 +196,4 @@ function edit_data($data,$tabla){
         exit();
     }
 }
-
 /*--------------------------------------------------------*/

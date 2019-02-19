@@ -206,6 +206,7 @@ td{
 }
 #edit-delete{
     display: block;
+    width: auto;
     color: black;
     font-size: x-large;
 }
