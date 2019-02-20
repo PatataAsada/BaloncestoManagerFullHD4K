@@ -91,10 +91,10 @@ form>label{
 }
 /*TABLAS PARA EQUIPOS*//*TABLAS PARA RESULTADOS*/
 div.tabla{
-    display: table;
-    width: 80%;
+    display: block;
+    width: 58%;
     float: left;
-    left: 10%;
+    left: 20%;
     top: 5%;
     margin: 2% 0% 0% 0%;
     padding: inherit;
