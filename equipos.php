@@ -30,7 +30,6 @@ eliminar_old();
     </div>
     <div class="tabla">
         <?php
-        //pintar tabla
         paintTablesFromQuery($_SESSION['user'],$_SESSION['pass'],$sql_data,"equipos",$header,false);
         ?>
     </div>

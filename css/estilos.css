@@ -183,6 +183,13 @@ div.volver{
     width: 100%;
     height: auto;
 }
+.tablote{
+    background-color: azure;
+    border: 1px solid black;
+    width: 83%;
+    left: 10%;
+    height: auto;
+}
 table{
     display: table;
     color: black;

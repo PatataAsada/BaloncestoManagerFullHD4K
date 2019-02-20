@@ -36,7 +36,12 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
         $data = $database->select($sql_data[0], $sql_data[1], $sql_data[2]);
         if ($data && $data > 0) {
             //Si devuelve true o es mayor de 0 es que la consulta está bien y el select devuelve datos
-            echo "<table class='tablita'>";
+            if($sql_data[0]=="equipos"){
+                echo "<table class='tablita'>";
+            }
+            if($sql_data[0]=="partidos"){
+                echo "<table class='tablote'>";
+            }
 
             echo "<tr>";
             foreach ($header as $value) {

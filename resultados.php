@@ -28,7 +28,6 @@ eliminar_old();
     </div>
     <div class="tabla">
     <?php
-    //TODO mostrar tabla con resultados.
     paintTablesFromQuery($_SESSION['user'],$_SESSION['pass'],$sql_data,"resultados",$header,false);
     ?>
     </div>
