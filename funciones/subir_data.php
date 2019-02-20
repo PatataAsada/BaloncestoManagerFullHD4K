@@ -28,9 +28,11 @@
             $nom_equipo = $_POST['nom_equipo'];
             $ciudad = $_POST['ciudad'];
             $num_socios = $_POST['num_socios'];
+            $old_data = $_POST['old_data'];
 
-            $sql_data = ["equipos",["nombre"=>$nom_equipo,"ciudad"=>$ciudad,"num_socios"=>$num_socios]];
+            $sql_data = ["equipos",["nombre"=>$nom_equipo,"ciudad"=>$ciudad,"num_socios"=>$num_socios],[$old_data[0]]];
             //TODO Update
+            update($_SESSION['user'],$_SESSION['pass'],$sql_data);
             unset_things("equipos");
             header("Location: ../equipos.php");
         }else{
@@ -38,8 +40,11 @@
             $equipo_local = $_POST['equipo_local'];
             $puntos_visitante = $_POST['puntos_visitante'];
             $puntos_local = $_POST['puntos_local'];
+            $old_data = $_POST['old_data'];
 
-            $sql_data = ["partidos",["equipo_local"=>$equipo_local,"equipo_visitante"=>$equipo_visitante,"puntos_local"=>$puntos_local,"puntos_visitante"=>$puntos_visitante]];
+            $sql_data = ["partidos",
+            ["equipo_local"=>$equipo_local,"equipo_visitante"=>$equipo_visitante,"puntos_local"=>$puntos_local,"puntos_visitante"=>$puntos_visitante]
+            ,[$old_data[0]]];
             //TODO Update
             unset_things("partidos");
             header("Location: ../resultados.php");
