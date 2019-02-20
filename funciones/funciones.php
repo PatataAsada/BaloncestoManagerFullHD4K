@@ -53,12 +53,20 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 }
                 //<i class="far fa-edit"></i> esto es para el boton de editar.
                 //<i class='far fa-trash-alt'></i> este es para el boton de eliminar.
-                echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='Actualizar' id='edit-delete'><i class='far fa-edit'></i></button>";
+                echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='Actualizar' id='edit-delete'>
+                <i class='far fa-edit'></i></button>";
+                echo "<input name'result[]' type='hidden' value='".$sql_data[0]."'>";
                 foreach ($value as $dato) {
-                    echo "<input name='result[]' type='hidden' value='" . $dato . "' >";
+                    echo "<input name='result[]' type='hidden' value='".$dato."'>";
                 }
                 echo "</form></td>";
-                echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='' 'id='edit-delete'><i class='far fa-trash-alt'></i></button></form></td>";
+                echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='Borrar' id='edit-delete'>
+                <i class='fas fa-trash-alt'></i></button>";
+                echo "<input name'result[]' type='hidden' value='".$sql_data[0]."'>";
+                foreach($value as $dato){
+                    echo "<input name='result[]' type='hidden' value='".$dato."' >";
+                }
+                echo"</form></td>";
                 echo "</tr>";
                 //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar
             }
