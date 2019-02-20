@@ -54,8 +54,8 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 //<i class="far fa-edit"></i> esto es para el boton de editar.
                 //<i class='far fa-trash-alt'></i> este es para el boton de eliminar.
                 echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='Actualizar' id='edit-delete'><i class='far fa-edit'></i></button>";
-                foreach ($value as $dato){
-                    echo "<input name='result[]' type='hidden' value='".$dato."' >";
+                foreach ($value as $dato) {
+                    echo "<input name='result[]' type='hidden' value='" . $dato . "' >";
                 }
                 echo "</form></td>";
                 echo "<td><form action='crear_modificar.php'><button type='submit' name='Opcion' value='' 'id='edit-delete'><i class='far fa-trash-alt'></i></button></form></td>";
@@ -170,30 +170,54 @@ function update($username, $password, $sql_data)
     }
     $database = null;
 }
+
 //Funciones para los botones de eliminar y editar
-function delete_data($primary_key,$tabla){
-    if($tabla == "partidos"){
-        deleteByGivenPrimaryKey($_SESSION['user'],$_SESSION['pass'],$tabla,$primary_key);
+function delete_data($primary_key, $tabla)
+{
+    if ($tabla == "partidos") {
+        deleteByGivenPrimaryKey($_SESSION['user'], $_SESSION['pass'], $tabla, $primary_key);
         header("Location: resultados.php");
         exit();
     }
-    if($tabla=="equipos"){
-        deleteByGivenPrimaryKey($_SESSION['user'],$_SESSION['pass'],$tabla,$data['nombre']);
+    if ($tabla == "equipos") {
+        /** @noinspection PhpUndefinedVariableInspection */
+        deleteByGivenPrimaryKey($_SESSION['user'], $_SESSION['pass'], $tabla, $data['nombre']);
         header("Location: equipos.php");
         exit();
     }
 }
 
-function edit_data($data,$tabla){
-    if($tabla == "partidos"){
+function edit_data($data, $tabla)
+{
+    if ($tabla == "partidos") {
         $_SESSION['resultado'] = $data;
         header("Location: crear_modificar_resultado.php");
         exit();
     }
-    if($tabla=="equipos"){
+    if ($tabla == "equipos") {
         $_SESSION['equipo'] = $data;
         header("Location: crear_modificar_equipo.php");
         exit();
     }
+}
+
+function getLiga($username, $password)
+{
+    $database = getDatabase($username, $password);
+    $liga = array();
+    try {
+        $liga = $database->get('liga',
+            ['nombre', 'anio_inicio', 'anio_fin', 'descripcion']);
+    } catch (Exception $e) {
+        post_error($e->getMessage());
+    }
+    $database = null;
+
+    if (!empty($liga)) {
+        return $liga;
+    } else {
+        return -1;
+    }
+
 }
 /*--------------------------------------------------------*/

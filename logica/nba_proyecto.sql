@@ -4,12 +4,20 @@ DROP DATABASE IF EXISTS baloncesto;
 CREATE DATABASE baloncesto;
 USE baloncesto;
 
+CREATE TABLE liga (
+  nombre varchar(40) NOT NULL,
+  anio_inicio Date NOT NULL,
+  anio_fin Date NOT NULL,
+  descripcion varchar(200) DEFAULT NULL,
+  PRIMARY KEY (nombre)
+)engine=innodb;
+
 CREATE TABLE equipos (
   nombre varchar(20) NOT NULL,
   ciudad varchar(20) DEFAULT NULL,
   num_socios int NOT NULL,
   anio TIMESTAMP NOT NULL,
-  PRIMARY KEY (Nombre)
+  PRIMARY KEY (nombre)
 )engine=innodb;
 
 CREATE TABLE jugadores (
