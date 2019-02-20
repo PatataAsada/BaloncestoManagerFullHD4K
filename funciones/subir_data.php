@@ -10,9 +10,7 @@
 
             $sql_data = ["equipos",["nombre"=>$nom_equipo,"ciudad"=>$ciudad,"num_socios"=>$num_socios]];
             insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            unset($_POST['nom_equipo']);
-            unset($_POST['ciudad']);
-            unset($_POST['num_socios']);
+            unset_things("equipos");
             header("Location: ../equipos.php");
         }else{
             $equipo_visitante = $_POST['equipo_visitante'];
@@ -22,10 +20,7 @@
 
             $sql_data = ["partidos",["equipo_local"=>$equipo_local,"equipo_visitante"=>$equipo_visitante,"puntos_local"=>$puntos_local,"puntos_visitante"=>$puntos_visitante]];
             insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            unset($_POST['equipo_visitante']);
-            unset($_POST['equipo_local']);
-            unset($_POST['puntos_visitante']);
-            unset($_POST['puntos_local']);
+            unset_things("partidos");
             header("Location: ../resultados.php");
         }  
     }elseif($_POST['Entrar']=='Actualizar'){
@@ -35,10 +30,8 @@
             $num_socios = $_POST['num_socios'];
 
             $sql_data = ["equipos",["nombre"=>$nom_equipo,"ciudad"=>$ciudad,"num_socios"=>$num_socios]];
-            insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            unset($_POST['nom_equipo']);
-            unset($_POST['ciudad']);
-            unset($_POST['num_socios']);
+            //TODO Update
+            unset_things("equipos");
             header("Location: ../equipos.php");
         }else{
             $equipo_visitante = $_POST['equipo_visitante'];
@@ -47,13 +40,23 @@
             $puntos_local = $_POST['puntos_local'];
 
             $sql_data = ["partidos",["equipo_local"=>$equipo_local,"equipo_visitante"=>$equipo_visitante,"puntos_local"=>$puntos_local,"puntos_visitante"=>$puntos_visitante]];
-            insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
+            //TODO Update
+            unset_things("partidos");
+            header("Location: ../resultados.php");
+        }
+        //header("Location: ../inicio.php");
+    }
+
+    function unset_things($tabla){
+        if($tabla == "equipos"){
+            unset($_POST['nom_equipo']);
+            unset($_POST['ciudad']);
+            unset($_POST['num_socios']);
+        }else{
             unset($_POST['equipo_visitante']);
             unset($_POST['equipo_local']);
             unset($_POST['puntos_visitante']);
             unset($_POST['puntos_local']);
-            header("Location: ../resultados.php");
         }
-        //header("Location: ../inicio.php");
     }
 ?>
