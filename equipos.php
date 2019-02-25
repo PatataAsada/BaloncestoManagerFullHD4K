@@ -22,7 +22,11 @@ eliminar_old();
     </div>
     <div class="botones">
         <div class="anadir">
-            <a href="crear_modificar_equipo.php" class="button" id="button">Crear equipo</a>
+            <form action="crear_modificar.php" method="POST">
+                <button name="tipo" value="equipo"class="button" id="button">Crear equipo</button>
+                
+            </form>
+            
         </div>
         <div class="volver">
             <a href="inicio.php" class="button" id="button">Volver</a>

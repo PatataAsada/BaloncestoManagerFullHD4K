@@ -127,15 +127,8 @@ label{
     margin: 5% 3% 0% 0%;
     color:black;
 }
-input.button{
-    float: right;
-    font-size: large;
-    border-radius: 10px;
-    margin: 10% 5% 5% 0%;
-    padding: 2px 5px 2px 3px;
-    color: black;
-}
-a.button{
+
+.button{
     display: block;
     float: right;
     font-size: large;
@@ -218,4 +211,11 @@ td{
     height: 50px;
     color: black;
     font-size: x-large;
+}
+
+.far{
+    color: black
+}
+.fas{
+    color: black;
 }
