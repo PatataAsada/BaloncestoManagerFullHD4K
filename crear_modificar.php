@@ -2,7 +2,7 @@
 require 'funciones\check_conexion.php';
 if(isset($_POST['tipo'])){
     $tipo = $_POST['tipo'];
-    if($tipo == "equipo"){
+    if($tipo == "equipos"){
         $nom_equipo = "";
         $ciudad = "";
         $num_socios = 0;
@@ -11,9 +11,9 @@ if(isset($_POST['tipo'])){
         //SI ES EQUIPO FORMULARIO EQUIPO
 
         if(isset($_POST['Opcion'])){
-            $nom_equipo = $_POST['result'][1];
-            $ciudad = $_POST['result'][2];
-            $num_socios = $_POST['result'][3];
+            $nom_equipo = $_POST['result'][0];
+            $ciudad = $_POST['result'][1];
+            $num_socios = (int)$_POST['result'][2];
             $array = [$nom_equipo,$ciudad,$num_socios];
         }
         ?>
@@ -46,9 +46,11 @@ if(isset($_POST['tipo'])){
                         <label for="num_socios">Número de socios: </label>
                         <?php
                         echo "<input type='number' name='num_socios' value='$num_socios' class='text'/>";
-
-                            if(isset($_GET['nom_equipo'])){
-                                echo "<input type='hidden' name='old' value='$array'>";
+                        echo "<input type='hidden' name='tabla' value='$tipo'/>";
+                            if(isset($_POST['result'])){
+                                foreach($array as $data){
+                                    echo "<input type='hidden' name='old[]' value='$data'/>";
+                                }
                                 echo '<input type="submit" name="Entrar" class="button"  value="Actualizar"/>';
                             }else{
                                 echo '<input type="submit" name="Entrar" class="button"  value="Crear"/>';
@@ -60,17 +62,17 @@ if(isset($_POST['tipo'])){
     <?php
     }
     //SI ES RESULTADO
-    elseif($tipo == "resultado"){
+    elseif($tipo == "partidos"){
         $equipo_visitante = "";
-    $equipo_local = "";
-    $puntos_visitante = "";
-    $puntos_local = "";
+        $equipo_local = "";
+        $puntos_visitante = "";
+        $puntos_local = "";
 
-    if(isset($_SESSION['resultado'])){
-        $equipo_local = $_SESSION['resultado'][0];
-        $puntos_local = $_SESSION['resultado'][1];
-        $equipo_visitante = $_SESSION['resultado'][2];
-        $puntos_visitante = $_SESSION['resultado'][3];
+    if(isset($_POST['result'])){
+        $equipo_local = $_POST['result'][0];
+        $puntos_local = $_POST['result'][1];
+        $equipo_visitante = $_POST['result'][2];
+        $puntos_visitante = $_POST['result'][3];
         $array = [$equipo_local,$puntos_local,$equipo_visitante,$puntos_visitante];
     }
     ?>
@@ -108,9 +110,12 @@ if(isset($_POST['tipo'])){
                     <label for="puntos_local">Puntuación equipo local: </label>
                     <?php
                         echo "<input type='number' name='puntos_local' class='text' value='$puntos_local'/>";
-                
-                        if(isset($_GET['equipo_local'])){
-                            echo "<input type='hidden' name='old' value='$array'>";
+                        echo "<input type='hidden' name='tabla' value='$tipo'/>";
+
+                        if(isset($_POST['result'])){
+                            foreach($array as $data){
+                                echo "<input type='hidden' name='old[]' value='$data'/>";
+                            }
                             echo '<input type="submit" name="Entrar" class="button"  value="Actualizar"/>';
                         }else{
                             echo '<input type="submit" name="Entrar" class="button"  value="Crear"/>';
@@ -122,11 +127,9 @@ if(isset($_POST['tipo'])){
     <?php
     }
     else{
-        echo "Peto por algo distinto";
-        //header("Location: ./inicio.php");
+        header("Location: ./inicio.php");
     }
 }else{
-    echo "peto por no encontrar tipo";
-    //header("Location: ./inicio.php");
+    header("Location: ./inicio.php");
 }
 ?>
