@@ -3,7 +3,6 @@
 comprobar que existe sesion.
 */
 require 'funciones\check_conexion.php';
-eliminar_old();
 ?>
 <!DOCTYPE html>
 <html lang="en">
