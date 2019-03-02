@@ -14,6 +14,9 @@ body{
     background-image: url("../img/basketball-background.jpg");
     background-repeat: no-repeat;
     background-size: auto;
+    background-position: center;
+    background-position-y: -10%;
+    background-color: black;
 }
 
 /*ESTILOS PARA DIVS*/
