@@ -10,7 +10,6 @@
 
             $sql_data = ["equipos",["nombre"=>$nom_equipo,"ciudad"=>$ciudad,"num_socios"=>$num_socios]];
             insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            eliminar_old();
             header("Location: ../equipos.php");
         }else{
             $equipo_visitante = $_POST['equipo_visitante'];
@@ -57,7 +56,6 @@
             
             //TODO Update
             update($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            eliminar_old();
             header("Location: ../equipos.php");
             exit();
         }

@@ -6,7 +6,6 @@ require 'funciones/funciones.php';
 require 'funciones/check_conexion.php';
 $header = ["nombre","ciudad","socios","año","actualizar","eliminar"];
 $sql_data = ["equipos",['nombre','ciudad','num_socios','anio'],""];
-eliminar_old();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,7 @@ eliminar_old();
     <div class="botones">
         <div class="anadir">
             <form action="crear_modificar.php" method="POST">
-                <button name="tipo" value="equipo"class="button" id="button">Crear equipo</button>
+                <button name="tipo" value="equipos"class="button" id="button">Crear equipo</button>
                 
             </form>
             

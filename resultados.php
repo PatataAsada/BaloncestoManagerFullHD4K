@@ -4,7 +4,6 @@ require 'funciones\check_conexion.php';
 require 'funciones/funciones.php';
 $header = ["local","puntos local","visitante", "puntos visitante","editar","eliminar"];
 $sql_data = ["partidos",["equipo_local","puntos_local","equipo_visitante","puntos_visitante"],""];
-eliminar_old();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +19,10 @@ eliminar_old();
     </div>
     <div class="botones">
         <div class="anadir">
-            <a href="crear_modificar_resultado.php" class="button" id="button">Crear resultado</a>
+        <form action="crear_modificar.php" method="POST">
+                <button name="tipo" value="partidos"class="button" id="button">Crear resultado</button>
+                
+            </form>
         </div>
         <div class="volver">
             <a href="inicio.php" class="button" id="button">Volver</a>
