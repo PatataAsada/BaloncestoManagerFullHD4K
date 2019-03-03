@@ -11,7 +11,7 @@ include '..\funciones\funciones.php';
 //TODO README: Todas las funciones están operativas.
 
 /*Variables para probar las funciones. Pon a true el tipo de sql que quieras probar*/
-$try_select = false;
+$try_select = true;
 $try_insert = false;
 $try_update = false;
 $try_delete = false;
@@ -28,7 +28,7 @@ if ($try_select) {
     //El nombre de tabla es wakanda porque es para forzar un error deliberadamente.
     //Si quieres probar que devuelva registros, pon equipos, partidos ...
 
-    $tabla = "WAKANDA"; // -> nombre de la tabla a consultar
+    $tabla = "equipos"; // -> nombre de la tabla a consultar
 
     //Array multidimensional contenedor de los campos que debe devolver la consulta
     $campos = array($tabla, //->tabla especificada anteriormente
@@ -43,6 +43,7 @@ if ($try_select) {
     //Array que contiene los nombres para la cabecera de la tabla
     $header = array("NOMBRE", "CIUDAD", "NUM_SOCIOS", "AÑO");
 
+    echo $campos[1][0];
 
     paintTablesFromQuery(
         $username,
@@ -127,5 +128,5 @@ if ($try_delete) {
 
 /*---------------------------------------------------------------------------------------*/
 
-$pipo = getLiga('root', '');
-print_r($pipo);
+//$pipo = getLiga('root', '');
+//print_r($pipo);
