@@ -69,10 +69,10 @@ if(isset($_POST['tipo'])){
         $puntos_local = "";
 
     if(isset($_POST['result'])){
-        $equipo_local = $_POST['result'][0];
-        $puntos_local = $_POST['result'][1];
-        $equipo_visitante = $_POST['result'][2];
-        $puntos_visitante = $_POST['result'][3];
+        $equipo_local = $_POST['result'][1];
+        $puntos_local = $_POST['result'][2];
+        $equipo_visitante = $_POST['result'][3];
+        $puntos_visitante = $_POST['result'][4];
         $array = [$equipo_local,$puntos_local,$equipo_visitante,$puntos_visitante];
     }
     ?>
