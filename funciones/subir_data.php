@@ -1,9 +1,12 @@
 <?php
     require 'check_conexion.php';
     require 'funciones.php';
+
+    $tabla = $_POST['tabla'];
+    echo $tipo;
     //Comprueba que sea crear, en caso contrario hace update.
     if($_POST['Entrar']=="Crear"){
-        if(isset($_POST['nom_equipo'])){
+        if($tabla == "equipos"){
             $nom_equipo = $_POST['nom_equipo'];
             $ciudad = $_POST['ciudad'];
             $num_socios = $_POST['num_socios'];
@@ -11,7 +14,7 @@
             $sql_data = ["equipos",["nombre"=>$nom_equipo,"ciudad"=>$ciudad,"num_socios"=>$num_socios]];
             insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
             header("Location: ../equipos.php");
-        }else{
+        }elseif($tabla=="partidos"){
             $equipo_visitante = $_POST['equipo_visitante'];
             $equipo_local = $_POST['equipo_local'];
             $puntos_visitante = $_POST['puntos_visitante'];
@@ -23,8 +26,7 @@
             header("Location: ../resultados.php");
         }  
     }elseif($_POST['Entrar']=='Actualizar'){
-        if(isset($_POST['tabla'])){
-            $tabla = $_POST['tabla'];
+        if($tipo=="equipos");
             if($tabla=="equipos"){
                 $nom_equipo = $_POST['nom_equipo'];
                 $ciudad = $_POST['ciudad'];
@@ -56,8 +58,11 @@
             
             //TODO Update
             update($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            header("Location: ../equipos.php");
+            if($tabla=="equipos"){
+                header("Location: ../equipos.php");
+            }elseif($tabla=="partidos"){
+                header("Location: ../resultados.php");
+            }
             exit();
         }
-    }
 ?>
