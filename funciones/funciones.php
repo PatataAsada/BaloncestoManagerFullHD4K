@@ -60,7 +60,7 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 //<i class='far fa-trash-alt'></i> este es para el boton de eliminar.
 
                 //Formulario de actualizar
-                echo "<td><form action='../crear_modificar.php' method='POST'>";
+                echo "<td><form action='crear_modificar.php' method='POST'>";
                 foreach ($value as $dato) {
                     echo "<input name='result[]' type='hidden' value='$dato'>";
                 }

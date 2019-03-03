@@ -10,7 +10,7 @@ if(isset($_POST['tipo'])){
 
         //SI ES EQUIPO FORMULARIO EQUIPO
 
-        if(isset($_POST['Opcion'])){
+        if(isset($_POST['result'])){
             $nom_equipo = $_POST['result'][0];
             $ciudad = $_POST['result'][1];
             $num_socios = (int)$_POST['result'][2];
