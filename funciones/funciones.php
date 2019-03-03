@@ -73,7 +73,7 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 echo "<td><form action='eliminar.php' method='POST'>";
                 $tabla = $sql_data[0];
                 echo "<input name='tabla' type='hidden' value='$tabla'/>";
-                $pk = $sql_data[1][getPrimaryFieldName($tabla)];
+                $pk = $sql_data[1][0];
                 echo "<input name='pk' type='hidden' value='$pk'>";
 
                 echo "<button type='submit' name='opcion' value='borrar' id='edit-delete'><i class='fas fa-trash-alt'></i></button>";
