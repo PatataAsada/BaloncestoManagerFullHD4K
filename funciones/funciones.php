@@ -36,10 +36,10 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
         $data = $database->select($sql_data[0], $sql_data[1], $sql_data[2]);
         if ($data && $data > 0) {
             //Si devuelve true o es mayor de 0 es que la consulta está bien y el select devuelve datos
-            if($sql_data[0]=="equipos"){
+            if ($sql_data[0] == "equipos") {
                 echo "<table class='tablita'>";
             }
-            if($sql_data[0]=="partidos"){
+            if ($sql_data[0] == "partidos") {
                 echo "<table class='tablote'>";
             }
 
@@ -58,25 +58,27 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 }
                 //<i class="far fa-edit"></i> esto es para el boton de editar.
                 //<i class='far fa-trash-alt'></i> este es para el boton de eliminar.
-                echo "<td><form action='crear_modificar.php' method='POST'>";
-                foreach ($value as $dato) {
-                    echo "<input name='result[]' type='hidden' value='".$dato."'>";
-                }
-                echo "<input name='tipo' type='hidden' value='".$sql_data[0]."'>";
 
-                echo "<button type='submit' name='Opcion' value='Actualizar' id='edit-delete'>
-                <i class='far fa-edit'></i></button>";
-                
-                echo "</form></td>";
-                echo "<td><form action='eliminar.php' method='POST'>";
-                echo "<input name'tipo' type='hidden' value='".$sql_data[0]."'>";
-                foreach($value as $dato){
-                    echo "<input name='result[]' type='hidden' value='".$dato."' >";
+                //Formulario de actualizar
+                echo "<td><form action='../crear_modificar.php' method='POST'>";
+                foreach ($value as $dato) {
+                    echo "<input name='result[]' type='hidden' value='$dato'>";
                 }
-                echo "<button type='submit' name='Opcion' value='Borrar' id='edit-delete'>
-                <i class='fas fa-trash-alt'></i></button>";
-                
-                echo"</form></td>";
+                echo "<input name='tipo' type='hidden' value='$sql_data[0]'>";
+
+                echo "<button type='submit' name='opcion' value='actualizar' id='edit-delete'><i class='far fa-edit'></i></button>";
+                echo "</form></td>";
+
+                //Formulario de eliminar
+                echo "<td><form action='eliminar.php' method='POST'>";
+                $tabla = $sql_data[0];
+                echo "<input name='tabla' type='hidden' value='$tabla'/>";
+                $pk = $sql_data[1][getPrimaryFieldName($tabla)];
+                echo "<input name='pk' type='hidden' value='$pk'>";
+
+                echo "<button type='submit' name='opcion' value='borrar' id='edit-delete'><i class='fas fa-trash-alt'></i></button>";
+
+                echo "</form></td>";
                 echo "</tr>";
                 //TODO Pasar todos los $value[$index] (o el $value del primer foreach) al botón de editar + pasar $value[0] para el botón de borrar
             }
@@ -117,7 +119,7 @@ function insert($username, $password, $sql_data)
     $database = getDatabase($username, $password);
     try {
         if ($insertedRows = $database->insert($sql_data[0], $sql_data[1])->rowCount()) {
-            echo "El equipo " . $sql_data[1]['nombre'] . " añadido";
+            echo $sql_data[1][getPrimaryFieldName($sql_data[0])] . " añadido";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -125,6 +127,7 @@ function insert($username, $password, $sql_data)
     $database = null;
 }
 
+//Método de prueba
 function delete($username, $password, $sql_data)
 {
     $database = getDatabase($username, $password);
@@ -179,7 +182,7 @@ function update($username, $password, $sql_data)
     $database = getDatabase($username, $password);
     try {
         if ($updatedRows = $database->update($sql_data[0], $sql_data[1], $sql_data[2])->rowCount() > 0) {
-            echo "El registro " . $sql_data[2]['nombre'] . " de la tabla " . $sql_data[0] . " ha sido actualizado";
+            echo "El registro " . $sql_data[2][getPrimaryFieldName($sql_data[0])] . " de la tabla " . $sql_data[0] . " ha sido actualizado";
         } else {
             echo "Todos los campos ya están actualizados, pruebe a insertar un nuevo dato";
         }
@@ -198,8 +201,7 @@ function delete_data($primary_key, $tabla)
         exit();
     }
     if ($tabla == "equipos") {
-        /** @noinspection PhpUndefinedVariableInspection */
-        deleteByGivenPrimaryKey($_SESSION['user'], $_SESSION['pass'], $tabla, $data['nombre']);
+        deleteByGivenPrimaryKey($_SESSION['user'], $_SESSION['pass'], $tabla, $primary_key);
         header("Location: equipos.php");
         exit();
     }

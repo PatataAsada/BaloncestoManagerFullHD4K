@@ -20,17 +20,17 @@ CREATE TABLE equipos (
   PRIMARY KEY (nombre)
 )engine=innodb;
 
-CREATE TABLE jugadores (
-  codigo int NOT NULL,
-  nombre varchar(30) DEFAULT NULL,
-  procedencia varchar(20) DEFAULT NULL,
-  altura varchar(4) DEFAULT NULL,
-  peso int DEFAULT NULL,
-  posicion varchar(5) DEFAULT NULL,
-  nombre_equipo varchar(20) DEFAULT NULL,
-  PRIMARY KEY (codigo),
-  FOREIGN KEY (nombre_equipo) References equipos(nombre)
-)engine=innodb;
+-- CREATE TABLE jugadores (
+--   codigo int NOT NULL,
+--   nombre varchar(30) DEFAULT NULL,
+--   procedencia varchar(20) DEFAULT NULL,
+--   altura varchar(4) DEFAULT NULL,
+--   peso int DEFAULT NULL,
+--   posicion varchar(5) DEFAULT NULL,
+--   nombre_equipo varchar(20) DEFAULT NULL,
+--   PRIMARY KEY (codigo),
+--   FOREIGN KEY (nombre_equipo) References equipos(nombre)
+-- )engine=innodb;
 
 CREATE TABLE partidos (
   codigo int NOT NULL,
