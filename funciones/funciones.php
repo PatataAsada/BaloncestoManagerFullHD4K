@@ -70,10 +70,10 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 echo "</form></td>";
 
                 //Formulario de eliminar
-                echo "<td><form action='eliminar.php' method='POST'>";
+                echo "<td><form action='funciones/eliminar.php' method='POST'>";
                 $tabla = $sql_data[0];
                 echo "<input name='tabla' type='hidden' value='$tabla'/>";
-                $pk = $sql_data[1][0];
+                $pk = $value[getPrimaryFieldName($tabla)];
                 echo "<input name='pk' type='hidden' value='$pk'>";
 
                 echo "<button type='submit' name='opcion' value='borrar' id='edit-delete'><i class='fas fa-trash-alt'></i></button>";
@@ -197,12 +197,13 @@ function delete_data($primary_key, $tabla)
 {
     if ($tabla == "partidos") {
         deleteByGivenPrimaryKey($_SESSION['user'], $_SESSION['pass'], $tabla, $primary_key);
-        header("Location: resultados.php");
+        header("Location: ../resultados.php");
         exit();
     }
     if ($tabla == "equipos") {
         deleteByGivenPrimaryKey($_SESSION['user'], $_SESSION['pass'], $tabla, $primary_key);
-        header("Location: equipos.php");
+        echo $primary_key;
+        //header("Location: ../equipos.php");
         exit();
     }
 }

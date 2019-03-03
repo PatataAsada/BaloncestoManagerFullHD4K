@@ -3,7 +3,6 @@
     require 'funciones.php';
 
     $tabla = $_POST['tabla'];
-    echo $tipo;
     //Comprueba que sea crear, en caso contrario hace update.
     if($_POST['Entrar']=="Crear"){
         if($tabla == "equipos"){
@@ -22,7 +21,6 @@
 
             $sql_data = ["partidos",["equipo_local"=>$equipo_local,"equipo_visitante"=>$equipo_visitante,"puntos_local"=>$puntos_local,"puntos_visitante"=>$puntos_visitante]];
             insert($_SESSION['user'],$_SESSION['pass'],$sql_data);
-            eliminar_old();
             header("Location: ../resultados.php");
         }  
     }elseif($_POST['Entrar']=='Actualizar'){
