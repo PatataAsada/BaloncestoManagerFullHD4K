@@ -11,7 +11,7 @@ include '..\funciones\funciones.php';
 //TODO README: Todas las funciones están operativas.
 
 /*Variables para probar las funciones. Pon a true el tipo de sql que quieras probar*/
-$try_select = true;
+$try_select = false;
 $try_insert = false;
 $try_update = false;
 $try_delete = false;
@@ -130,3 +130,5 @@ if ($try_delete) {
 
 //$pipo = getLiga('root', '');
 //print_r($pipo);
+
+print_r(getAllPrimaryValues($username, $password, 'equipos'));

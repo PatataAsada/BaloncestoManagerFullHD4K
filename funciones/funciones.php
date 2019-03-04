@@ -241,4 +241,31 @@ function getLiga($username, $password)
     }
 
 }
+
+function getAllPrimaryValues($username, $password, $table)
+{
+    $arrayCampos = array();
+    $arrayResultados = array();
+    $database = getDatabase($username, $password);
+
+    if (getPrimaryFieldName($table) == 'nombre') {
+        $arrayCampos = ['nombre', 'ciudad', 'num_socios', 'anio'];
+    } else if (getPrimaryFieldName($table) == 'codigo') {
+        $arrayCampos = ['codigo', 'equipo_local', 'equipo_visitante', 'puntos_local', 'puntos_visitantes', 'temporada'];
+    }
+
+    try {
+        $data = $database->select($table, $arrayCampos, true);
+
+        if ($data && $data > 0) {
+            foreach ($data as $values) {
+                array_unshift($arrayResultados, $values[getPrimaryFieldName($table)]);
+            }
+        }
+    } catch (Exception $e) {
+        post_error($e->getMessage());
+    }
+    $database = null;
+    return $arrayResultados;
+}
 /*--------------------------------------------------------*/
