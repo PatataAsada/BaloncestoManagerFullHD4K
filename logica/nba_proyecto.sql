@@ -40,6 +40,6 @@ CREATE TABLE partidos (
   puntos_visitante int DEFAULT NULL,
   temporada varchar(5) DEFAULT NULL,
   PRIMARY KEY (codigo),
-  FOREIGN KEY (equipo_local) REFERENCES equipos(nombre),
-  FOREIGN KEY (equipo_visitante) REFERENCES equipos(nombre)
+  FOREIGN KEY (equipo_local) REFERENCES equipos(nombre) ON DELETE CASCADE,
+  FOREIGN KEY (equipo_visitante) REFERENCES equipos(nombre) ON DELETE CASCADE
 )engine=innodb;
