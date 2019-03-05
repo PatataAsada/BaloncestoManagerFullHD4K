@@ -98,7 +98,11 @@ if(isset($_POST['tipo'])){
                         echo "<select name='equipo_visitante' form='resultform' class='text' value='$equipo_visitante'>";
                         $array_equipos = getAllPrimaryValues($_SESSION['user'],$_SESSION['pass'],"equipos");
                         foreach($array_equipos as $equipo){
-                            echo "<option value='$equipo'>$equipo</option>";
+                            if($equipo == $equipo_visitante){
+                                echo "<option value='$equipo' selected='selected'>$equipo</option>";
+                            }else{
+                                echo "<option value='$equipo'>$equipo</option>";
+                            }
                         }
                         echo "</select>";
                     ?>
@@ -110,10 +114,14 @@ if(isset($_POST['tipo'])){
 
                     <label for="equipo_local">Equipo local: </label>
                     <?php
-                        echo "<select name='equipo_local' form='resultform' class='text' value='$equipo_local'>";
+                        echo "<select name='equipo_local' form='resultform' class='text'>";
                         $array_equipos = getAllPrimaryValues($_SESSION['user'],$_SESSION['pass'],"equipos");
                         foreach($array_equipos as $equipo){
-                            echo "<option value='$equipo'>$equipo</option>";
+                            if($equipo == $equipo_local){
+                                echo "<option value='$equipo' selected='selected'>$equipo</option>";
+                            }else{
+                                echo "<option value='$equipo'>$equipo</option>";
+                            }
                         }
                         echo "</select>";
                     ?>
