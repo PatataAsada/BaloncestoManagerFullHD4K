@@ -1,5 +1,6 @@
 <?php
 require 'funciones\check_conexion.php';
+require 'funciones\funciones.php';
 if(isset($_POST['tipo'])){
     $tipo = $_POST['tipo'];
     if($tipo == "equipos"){
@@ -91,10 +92,15 @@ if(isset($_POST['tipo'])){
             <a href="resultados.php" class="button" id="button">Volver</a>
         </div>
         <div class="formulario">
-            <form action="funciones/subir_data.php" method="POST" >
+            <form action="funciones/subir_data.php" method="POST" id="resultform">
                     <label for="equipo_visitante">Equipo visitante: </label>
                     <?php
-                    echo "<input type='text' name='equipo_visitante' value='$equipo_visitante' class='text'/>";
+                        echo "<select name='equipo_visitante' form='resultform' class='text' value='$equipo_visitante'>";
+                        $array_equipos = getAllPrimaryValues($_SESSION['user'],$_SESSION['pass'],"equipos");
+                        foreach($array_equipos as $equipo){
+                            echo "<option value='$equipo'>$equipo</option>";
+                        }
+                        echo "</select>";
                     ?>
 
                     <label for="puntos_visitante">Puntuación equipo visitante: </label>
@@ -104,7 +110,12 @@ if(isset($_POST['tipo'])){
 
                     <label for="equipo_local">Equipo local: </label>
                     <?php
-                        echo "<input type='text' name='equipo_local' class='text' value='$equipo_local'/>"
+                        echo "<select name='equipo_local' form='resultform' class='text' value='$equipo_local'>";
+                        $array_equipos = getAllPrimaryValues($_SESSION['user'],$_SESSION['pass'],"equipos");
+                        foreach($array_equipos as $equipo){
+                            echo "<option value='$equipo'>$equipo</option>";
+                        }
+                        echo "</select>";
                     ?>
 
                     <label for="puntos_local">Puntuación equipo local: </label>
