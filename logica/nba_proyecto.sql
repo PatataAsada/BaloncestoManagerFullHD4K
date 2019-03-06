@@ -73,7 +73,7 @@ INSERT INTO `liga` (`nombre`, `anio_inicio`, `anio_fin`, `descripcion`) VALUES
 --
 
 CREATE TABLE `partidos` (
-  `codigo` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `equipo_local` varchar(20) DEFAULT NULL,
   `equipo_visitante` varchar(20) DEFAULT NULL,
   `puntos_local` int(11) DEFAULT NULL,
@@ -113,8 +113,8 @@ ALTER TABLE `partidos`
 -- Filtros para la tabla `partidos`
 --
 ALTER TABLE `partidos`
-  ADD CONSTRAINT `partidos_ibfk_1` FOREIGN KEY (`equipo_local`) REFERENCES `equipos` (`nombre`) ON DELETE CASCADE,
-  ADD CONSTRAINT `partidos_ibfk_2` FOREIGN KEY (`equipo_visitante`) REFERENCES `equipos` (`nombre`) ON DELETE CASCADE;
+  ADD CONSTRAINT `partidos_ibfk_1` FOREIGN KEY (`equipo_local`) REFERENCES `equipos` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `partidos_ibfk_2` FOREIGN KEY (`equipo_visitante`) REFERENCES `equipos` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
