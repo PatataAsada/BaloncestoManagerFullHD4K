@@ -73,7 +73,7 @@ INSERT INTO `liga` (`nombre`, `anio_inicio`, `anio_fin`, `descripcion`) VALUES
 --
 
 CREATE TABLE `partidos` (
-  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` int(11) NOT NULL,
   `equipo_local` varchar(20) DEFAULT NULL,
   `equipo_visitante` varchar(20) DEFAULT NULL,
   `puntos_local` int(11) DEFAULT NULL,
