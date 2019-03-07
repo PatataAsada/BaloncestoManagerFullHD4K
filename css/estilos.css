@@ -102,6 +102,15 @@ div.tabla{
     margin: 2% 0% 0% 0%;
     padding: inherit;
 }
+div.tabla2{
+    display: block;
+    width: 60%;
+    float: left;
+    left: 20%;
+    top: 5%;
+    margin: 2% 0% 0% 0%;
+    padding: inherit;
+}
 div.anadir{
     left: 15%;
 }
@@ -182,25 +191,34 @@ div.volver{
 .tablote{
     background-color: azure;
     border: 1px solid black;
-    width: 83%;
-    left: 10%;
+    width: 100%;
     height: auto;
 }
 table{
     display: table;
+    width: 100%;
     color: black;
 }
 tr{
     display: table-row;
+    width: 100%;
     font-weight: bold;
     color: black;
     border-bottom: 1px solid black;
 }
-th,td{
+.tablita>tbody>tr>th,.tablita>tbody>tr>td{
     border: 1px solid black;
     text-align: center;
     display: table-cell;
     width: 16.67%;
+    font-weight: bold;
+    color: black;
+}
+.tablote>tbody>tr>th,.tablote>tbody>tr>td{
+    border: 1px solid black;
+    text-align: center;
+    display: table-cell;
+    width: 13%;
     font-weight: bold;
     color: black;
 }

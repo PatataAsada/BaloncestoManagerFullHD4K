@@ -28,7 +28,7 @@ $sql_data = ["partidos",["codigo","equipo_local","puntos_local","equipo_visitant
             <a href="inicio.php" class="button" id="button">Volver</a>
         </div>
     </div>
-    <div class="tabla">
+    <div class="tabla2">
     <?php
     paintTablesFromQuery($_SESSION['user'],$_SESSION['pass'],$sql_data,"resultados",$header,false);
     ?>
