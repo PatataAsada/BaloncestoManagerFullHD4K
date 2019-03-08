@@ -11,8 +11,6 @@ if ($_POST['Entrar'] == "Crear") {
         $num_socios = $_POST['num_socios'];
 
         $sql_data = ["equipos", ["nombre" => $nom_equipo, "ciudad" => $ciudad, "num_socios" => $num_socios]];
-        insert($_SESSION['user'], $_SESSION['pass'], $sql_data);
-        header("Location: ../equipos.php");
     } elseif ($tabla == "partidos") {
         $equipo_visitante = $_POST['equipo_visitante'];
         $equipo_local = $_POST['equipo_local'];
@@ -20,8 +18,21 @@ if ($_POST['Entrar'] == "Crear") {
         $puntos_local = $_POST['puntos_local'];
 
         $sql_data = ["partidos", ["equipo_local" => $equipo_local, "equipo_visitante" => $equipo_visitante, "puntos_local" => $puntos_local, "puntos_visitante" => $puntos_visitante]];
+    }
+    if ($tabla = "partidos") {
+        if ($equipo_local != $equipo_visitante && $puntos_local != $puntos_visitante) {
+            insert($_SESSION['user'], $_SESSION['pass'], $sql_data);
+            header("Location: ../resultados.php");
+        } else if ($equipo_local != $equipo_visitante) {
+            $reason = "Has seleccionado dos equipos iguales.";
+            header("Location: ../error_page.php/$reason");
+        } else if ($puntos_local != $puntos_visitante) {
+            $reason = "Has seleccionado dos puntuaciones idénticas. No se pueden dar empates.";
+            header("Location: ../error_page.php/$reason");
+        }
+    } else {
         insert($_SESSION['user'], $_SESSION['pass'], $sql_data);
-        header("Location: ../resultados.php");
+        header("Location: ../equipos.php");
     }
 } elseif ($_POST['Entrar'] == 'Actualizar') {
     if ($tabla == "equipos") {
@@ -59,10 +70,10 @@ if ($_POST['Entrar'] == "Crear") {
             header("Location: ../resultados.php");
         } else if ($equipo_local != $equipo_visitante) {
             $reason = "Has seleccionado dos equipos iguales.";
-            header("Location: error_page.php/$reason");
+            header("Location: ../error_page.php/$reason");
         } else if ($puntos_local != $puntos_visitante) {
             $reason = "Has seleccionado dos puntuaciones idénticas. No se pueden dar empates.";
-            header("Location: error_page.php/$reason");
+            header("Location: ../error_page.php/$reason");
         }
     } else {
         update($_SESSION['user'], $_SESSION['pass'], $sql_data);
