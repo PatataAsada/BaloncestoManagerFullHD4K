@@ -91,11 +91,11 @@ function paintTablesFromQuery($username, $password, $sql_data, $entity, $header,
                 $count = count($data);
             }
 
-            echo "<div style=\"text-align: center;\" class='error'><h3><b>" . "Número de $entity: " . $count . "</h3></b>";
+            echo "<div style=\"text-align: center;\"><h3><b>" . "Número de $entity: " . $count . "</h3></b>";
             goBack($isBack);
         } else if (empty($data)) {
             //Si devuelve 0 la consulta no tiene registros que devolver
-            echo "<div style=\"text-align: center;\" class='error'><b>" . "LA CONSULTA DEVOLVIÓ 0 RESULTADOS PARA EL VALOR INTRODUCIDO -> 0 " . $entity . "</b>";
+            echo "<div style=\"text-align: center;\" class='error'><b>" . "No hay resultados de partidos aun </b>";
             goBack($isBack);
         }
     } catch (PDOException $e) {

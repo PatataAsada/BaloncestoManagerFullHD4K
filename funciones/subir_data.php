@@ -23,12 +23,12 @@ if ($_POST['Entrar'] == "Crear") {
         if ($equipo_local != $equipo_visitante && $puntos_local != $puntos_visitante) {
             insert($_SESSION['user'], $_SESSION['pass'], $sql_data);
             header("Location: ../resultados.php");
-        } else if ($equipo_local != $equipo_visitante) {
+        } else if ($equipo_local == $equipo_visitante) {
             $reason = "Has seleccionado dos equipos iguales.";
-            header("Location: ../error_page.php/$reason");
-        } else if ($puntos_local != $puntos_visitante) {
+            header("Location: ../error_page.php?reason=$reason");
+        } else if ($puntos_local == $puntos_visitante) {
             $reason = "Has seleccionado dos puntuaciones idénticas. No se pueden dar empates.";
-            header("Location: ../error_page.php/$reason");
+            header("Location: ../error_page.php?reason=$reason");
         }
     } else {
         insert($_SESSION['user'], $_SESSION['pass'], $sql_data);
@@ -68,10 +68,10 @@ if ($_POST['Entrar'] == "Crear") {
         if ($equipo_local != $equipo_visitante && $puntos_local != $puntos_visitante) {
             update($_SESSION['user'], $_SESSION['pass'], $sql_data);
             header("Location: ../resultados.php");
-        } else if ($equipo_local != $equipo_visitante) {
+        } else if ($equipo_local == $equipo_visitante) {
             $reason = "Has seleccionado dos equipos iguales.";
             header("Location: ../error_page.php?reason=$reason");
-        } else if ($puntos_local != $puntos_visitante) {
+        } else if ($puntos_local == $puntos_visitante) {
             $reason = "Has seleccionado dos puntuaciones idénticas. No se pueden dar empates.";
             header("Location: ../error_page.php?reason=$reason");
         }
@@ -86,5 +86,5 @@ if ($_POST['Entrar'] == "Crear") {
 //    } elseif ($tabla == "partidos") {
 //        header("Location: ../resultados.php");
 //    }
-    exit();
+    //exit();
 }

@@ -245,3 +245,36 @@ td{
 option{
     color: black;
 }
+
+a.error{
+    display: block;
+    float: left;
+    font-size: x-large;
+    top: 40%;
+    left: 19.5%;
+    width: 20%;
+    height: 10%;
+    background-color: rgba(150, 146, 146, 0.7);
+    border: 3px solid darkolivegreen;
+    border-radius: 10px;
+    margin: auto;
+    padding: 3% 0% 0% 0%;
+    color: white;
+    text-align: center;
+}
+div.error{
+    display: block;
+    float: left;
+    font-size: x-large;
+    top: 20%;
+    left: 40%;
+    width: 20%;
+    height: 14%;
+    background-color: rgba(150, 146, 146, 0.7);
+    border: 3px solid darkolivegreen;
+    border-radius: 10px;
+    margin: auto;
+    padding: auto;
+    color: rgb(255, 187, 0);
+    text-align: center;
+}
