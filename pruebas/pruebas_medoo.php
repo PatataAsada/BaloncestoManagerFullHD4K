@@ -38,7 +38,7 @@ if ($try_select) {
             "num_socios",
             "anio"),
         true); //-> si este campo es true se quiere consultar toda la tabla, de lo contrario se añadiría un nuevo array con el where
-    //Ejemplo: array("num_socios[>] => 13" ... )
+    //Ejemplo: array("num_socios[>]" => 13 ... )
 
     //Array que contiene los nombres para la cabecera de la tabla
     $header = array("NOMBRE", "CIUDAD", "NUM_SOCIOS", "AÑO");
