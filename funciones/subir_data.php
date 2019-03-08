@@ -53,11 +53,16 @@ if ($_POST['Entrar'] == "Crear") {
             array("codigo" => $old[0])];
     }
 
-    //TODO Update
     if ($tabla = "partidos") {
-        if (!($equipo_local == $equipo_visitante) && !($puntos_local == $puntos_visitante)) {
+        if ($equipo_local != $equipo_visitante && $puntos_local != $puntos_visitante) {
             update($_SESSION['user'], $_SESSION['pass'], $sql_data);
             header("Location: ../resultados.php");
+        } else if ($equipo_local != $equipo_visitante) {
+            $reason = "Has seleccionado dos equipos iguales.";
+            header("Location: error_page.php/$reason");
+        } else if ($puntos_local != $puntos_visitante) {
+            $reason = "Has seleccionado dos puntuaciones idénticas. No se pueden dar empates.";
+            header("Location: error_page.php/$reason");
         }
     } else {
         update($_SESSION['user'], $_SESSION['pass'], $sql_data);
@@ -72,4 +77,3 @@ if ($_POST['Entrar'] == "Crear") {
 //    }
     exit();
 }
-?>
