@@ -70,10 +70,10 @@ if ($_POST['Entrar'] == "Crear") {
             header("Location: ../resultados.php");
         } else if ($equipo_local != $equipo_visitante) {
             $reason = "Has seleccionado dos equipos iguales.";
-            header("Location: ../error_page.php/$reason");
+            header("Location: ../error_page.php?reason=$reason");
         } else if ($puntos_local != $puntos_visitante) {
             $reason = "Has seleccionado dos puntuaciones idénticas. No se pueden dar empates.";
-            header("Location: ../error_page.php/$reason");
+            header("Location: ../error_page.php?reason=$reason");
         }
     } else {
         update($_SESSION['user'], $_SESSION['pass'], $sql_data);
