@@ -64,17 +64,19 @@ if(isset($_POST['tipo'])){
     }
     //SI ES RESULTADO
     elseif($tipo == "partidos"){
+        $codigo = 0;
         $equipo_visitante = "";
         $equipo_local = "";
         $puntos_visitante = "";
         $puntos_local = "";
 
     if(isset($_POST['result'])){
+        $codigo = $_POST['result'][0];
         $equipo_local = $_POST['result'][1];
         $puntos_local = $_POST['result'][2];
         $equipo_visitante = $_POST['result'][3];
         $puntos_visitante = $_POST['result'][4];
-        $array = [$equipo_local,$puntos_local,$equipo_visitante,$puntos_visitante];
+        $array = [$codigo,$equipo_local,$puntos_local,$equipo_visitante,$puntos_visitante];
     }
     ?>
     <!DOCTYPE html>
@@ -130,7 +132,6 @@ if(isset($_POST['tipo'])){
                     <?php
                         echo "<input type='number' name='puntos_local' class='text' value='$puntos_local'/>";
                         echo "<input type='hidden' name='tabla' value='$tipo'/>";
-
                         if(isset($_POST['result'])){
                             foreach($array as $data){
                                 echo "<input type='hidden' name='old[]' value='$data'/>";

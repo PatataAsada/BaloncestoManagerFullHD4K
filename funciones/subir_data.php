@@ -24,7 +24,6 @@
             header("Location: ../resultados.php");
         }  
     }elseif($_POST['Entrar']=='Actualizar'){
-        if($tipo=="equipos");
             if($tabla=="equipos"){
                 $nom_equipo = $_POST['nom_equipo'];
                 $ciudad = $_POST['ciudad'];
